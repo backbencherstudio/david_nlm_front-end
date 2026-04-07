@@ -8,6 +8,7 @@
   padding: 0 16px;
   margin: 0 auto;
 }
+
 @theme inline {
   --color-primaryColor: var(--primaryColor);
   --color-secondaryColor: var(--secondaryColor);
@@ -24,6 +25,10 @@
   --color-ratingColor: #ffc52e;
   --color-bgColor: var(--bgColor);
   --color-descriptionColor: var(--descriptionColor);
+  --color-purpleColor: var(--purpleColor);
+  --color-purpleOne: var(--purpleOne);
+  --color-purpleTwo: var(--purpleTwo);
+  --color-purpleThree: var(--purpleThree);
   /* ======== */
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -72,6 +77,10 @@
   --grayColor1: #777980;
   --bgColor: rgba(243, 243, 244, 0.5);
   --descriptionColor: #4a4c56;
+  --purpleColor: #ad46ff;
+  --purpleOne: #795FF4;
+  --purpleTwo: #8F6CFD;
+  --purpleThree: #8E5EF3;
   /* ========== */
   --radius: 0.625rem;
   --background: oklch(1 0 0);
@@ -129,7 +138,7 @@
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-4: #ad46ff;
   --chart-5: oklch(0.645 0.246 16.439);
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
@@ -145,17 +154,19 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
 }
+
 .pointer-events-none {
   pointer-events: none;
   display: block !important;
   opacity: 1 !important;
 }
 
-input:checked ~ .checkmark {
+input:checked~.checkmark {
   background-color: var(--color-green-600);
 }
 
@@ -163,6 +174,7 @@ input:checked ~ .checkmark {
   opacity: 1;
   cursor: pointer;
 }
+
 .close .\[\&_svg\]\:pointer-events-none svg {
   pointer-events: none;
   background-color: var(--secondaryColor);
@@ -173,4 +185,9 @@ input:checked ~ .checkmark {
   cursor: pointer;
 
   border-radius: 50%;
+}
+
+
+.gradient-bg {
+  background: var(--Purple-shade, linear-gradient(90deg, #795FF4 0%, #8F6CFD 50.3%, #8E5EF3 100%));
 }
