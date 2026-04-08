@@ -6,6 +6,7 @@ import PlatformWork from "./_components/platform/PlatformWork";
 import ServiceOverview from "./_components/service-overview/ServiceOverview";
 import WhyChoose from "./_components/why-choose/WhyChoose";
 import Customers from "./_components/customers/Customers";
+import ZeroHassle from "./_components/zero-hassle/ZeroHassle";
 
 
 export default function Home() {
@@ -26,6 +27,7 @@ export default function Home() {
       <div className="bg-[#FAFAFA]">
         <Customers />
       </div>
+      <ZeroHassle />
     </div>
   );
 }
