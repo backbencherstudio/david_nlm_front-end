@@ -54,7 +54,7 @@ const PlatformWork = () => {
 
                 {/* Image */}
                 <div className="w-full lg:w-1/2">
-                    <div className="bg-[#F8F6FF] pt-[2.563rem] pr-[2.563rem] pl-[2.563rem] rounded-2xl border
+                    <div className="bg-bgColorOne pt-[2.563rem] pr-[2.563rem] pl-[2.563rem] rounded-2xl border
                      border-[#E7E0FF] flex justify-center items-center">
                         <Image
                             src="/platform.png"

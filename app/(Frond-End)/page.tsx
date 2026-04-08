@@ -1,4 +1,5 @@
 import AppBackground from "./_components/AppBackground";
+import GrowBusiness from "./_components/GrowBusiness/GrowBusiness";
 import HeroSection from "./_components/Hero/HeroSection";
 import ConnectPeople from "./_components/connect-people/ConnectPeople";
 import PlatformWork from "./_components/platform/PlatformWork";
@@ -20,6 +21,7 @@ export default function Home() {
       <div className="bg-[#FAFAFA]">
         <WhyChoose />
       </div>
+      <GrowBusiness />
     </div>
   );
 }
