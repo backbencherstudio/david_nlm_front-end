@@ -3,6 +3,7 @@ import HeroSection from "./_components/Hero/HeroSection";
 import ConnectPeople from "./_components/connect-people/ConnectPeople";
 import PlatformWork from "./_components/platform/PlatformWork";
 import ServiceOverview from "./_components/service-overview/ServiceOverview";
+import WhyChoose from "./_components/why-choose/WhyChoose";
 
 
 export default function Home() {
@@ -16,6 +17,9 @@ export default function Home() {
         <PlatformWork />
       </div>
       <ServiceOverview />
+      <div className="bg-[#FAFAFA]">
+        <WhyChoose />
+      </div>
     </div>
   );
 }

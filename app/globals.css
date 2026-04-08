@@ -29,6 +29,7 @@
   --color-purpleOne: var(--purpleOne);
   --color-purpleTwo: var(--purpleTwo);
   --color-purpleThree: var(--purpleThree);
+  --color-borderColor: var(--borderColor);
   /* ======== */
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -81,6 +82,7 @@
   --purpleOne: #795FF4;
   --purpleTwo: #8F6CFD;
   --purpleThree: #8E5EF3;
+  --borderColor: #E9E9EA;
   /* ========== */
   --radius: 0.625rem;
   --background: oklch(1 0 0);
