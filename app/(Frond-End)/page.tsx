@@ -5,6 +5,7 @@ import ConnectPeople from "./_components/connect-people/ConnectPeople";
 import PlatformWork from "./_components/platform/PlatformWork";
 import ServiceOverview from "./_components/service-overview/ServiceOverview";
 import WhyChoose from "./_components/why-choose/WhyChoose";
+import Customers from "./_components/customers/Customers";
 
 
 export default function Home() {
@@ -22,6 +23,9 @@ export default function Home() {
         <WhyChoose />
       </div>
       <GrowBusiness />
+      <div className="bg-[#FAFAFA]">
+        <Customers />
+      </div>
     </div>
   );
 }
