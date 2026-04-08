@@ -1,8 +1,11 @@
 
-function CustomButton({children}) {
+function CustomButton({ children, className }: {
+  children: React.ReactNode
+  className?: string
+}) {
   return (
-    <div className=" text-center mt-3">
-      <button className=' px-6 py-[14px] cursor-pointer bg-secondaryColor rounded-xl text-blackColor font-medium text-lg'>{children}</button>
+    <div className="text-center">
+      <button className={`flex items-center gap-2 cursor-pointer ${className}`}>{children}</button>
     </div>
   )
 }

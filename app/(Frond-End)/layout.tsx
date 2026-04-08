@@ -10,10 +10,10 @@ export default function FrontEndLayout({
   children: React.ReactNode;
 }) {
   return (
-    <AppBackground>
+    <>
       <Navbar />
       {children}
       <Footer />
-    </AppBackground>
+    </>
   );
 }

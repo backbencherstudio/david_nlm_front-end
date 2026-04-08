@@ -11,9 +11,9 @@ import Container from "@/app/_components/Container";
 
 const menuItems = [
   { en: "Home", slug: "/" },
-  { en: "About Us", slug: "#" },
-  { en: "How It Wroks", slug: "#" },
-  { en: "Services", slug: "#" },
+  { en: "About Us", slug: "/about" },
+  { en: "How It Wroks", slug: "/how-it-works" },
+  { en: "Services", slug: "/services" },
 
 ];
 
@@ -23,7 +23,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <Container className="mt-4">
+    <Container className="mt-4 relative z-50">
       <div className="flex justify-between items-center bg-white p-4 rounded-full">
         {/* Left: Logo */}
         <Link href="/" className="flex items-center gap-2">
