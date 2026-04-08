@@ -6,28 +6,28 @@ import React from 'react'
 
 const growBusinessData = [
     {
-        icon: <CircleTickIcon />,
+        icon: <CircleTickIcon color='#795FF4' />,
         title: "Create a professional service profile",
 
 
     },
     {
-        icon: <CircleTickIcon />,
+        icon: <CircleTickIcon color='#795FF4' />,
         title: "Accept or decline booking requests",
 
     },
     {
-        icon: <CircleTickIcon />,
+        icon: <CircleTickIcon color='#795FF4' />,
         title: "Set pricing, availability & milestones",
 
     },
     {
-        icon: <CircleTickIcon />,
+        icon: <CircleTickIcon color='#795FF4' />,
         title: "Get paid securely and on time",
 
     },
     {
-        icon: <CircleTickIcon />,
+        icon: <CircleTickIcon color='#795FF4' />,
         title: "Build your reputation with reviews",
 
     }
