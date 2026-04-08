@@ -13,7 +13,9 @@ export default function FrontEndLayout({
     <>
       <Navbar />
       {children}
-      <Footer />
+      <div className="bg-[#FAFAFA]">
+        <Footer />
+      </div>
     </>
   );
 }

@@ -33,8 +33,8 @@ const Customers = () => {
     return (
         <Container className='py-5 sm:py-30'>
             <div className='flex flex-col items-center justify-center space-y-3 sm:space-y-4 text-center'>
-                <h2 className='text-4xl sm:text-[2.5rem] font-semibold text-blackColor leading-[130%] capitalize text-center '>Hear From Our Happy Customers</h2>
-                <p className='text-lg sm:text-base font-normal text-descriptionColor leading-[160%] max-w-full sm:max-w-[700px] text-center '>Hear directly from our customers about their experiences with us. Real stories, honest feedback, and trusted results that show how we deliver value every time</p>
+                <h2 className='text-2xl sm:text-[2.5rem] font-semibold text-blackColor leading-[130%] capitalize text-center '>Hear From Our Happy Customers</h2>
+                <p className='text-sm sm:text-base font-normal text-descriptionColor leading-[160%] max-w-full sm:max-w-[700px] text-center '>Hear directly from our customers about their experiences with us. Real stories, honest feedback, and trusted results that show how we deliver value every time</p>
             </div>
             <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7.5 mt-10 sm:mt-12'>
                 {customerData.map((item) => (

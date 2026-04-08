@@ -19,18 +19,18 @@ interface ServiceOverviewCardProps {
 
 const ServiceOverviewCard = ({ image, title, features, link, isActive }: ServiceOverviewCardProps) => {
     return (
-        <div className='space-y-6 '>
+        <div className='space-y-4 sm:space-y-6 '>
             <div className='w-full'>
                 <Image src={image} alt={title} width={300} height={300} className='w-full h-full object-cover' />
             </div>
 
             <div>
-                <h1 className='text-2xl font-semibold capitalize leading-[130%] text-blackColor mb-4'>{title}</h1>
+                <h1 className='text-lg sm:text-2xl font-semibold capitalize leading-[130%] text-blackColor mb-4'>{title}</h1>
                 <div className='space-y-3'>
                     {features.map((feature, index) => (
                         <div key={index} className='flex items-center gap-2'>
                             {feature.icon}
-                            <p className='text-base leading-[160%] text-descriptionColor'>{feature.desc}</p>
+                            <p className='text-sm sm:text-base leading-[160%] text-descriptionColor'>{feature.desc}</p>
                         </div>
                     ))}
                 </div>

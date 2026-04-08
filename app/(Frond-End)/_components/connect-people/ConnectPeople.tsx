@@ -10,17 +10,19 @@ const ConnectPeople = () => {
             {/* Left Content */}
             <div className="flex flex-col w-full sm:w-1/2">
 
-                <h2 className="text-blackColor text-2xl sm:text-[2.5rem] leading-[130%] font-semibold capitalize mb-4">
+                <h2 className="text-blackColor text-2xl sm:text-[2.5rem] leading-[130%] font-semibold capitalize mb-4 text-center sm:text-left">
                     We’re Building a Smarter Way to connect people
                 </h2>
 
-                <p className="text-descriptionColor text-sm sm:text-base leading-[160%] mb-6 sm:mb-9">
+                <p className="text-descriptionColor text-sm sm:text-base leading-[160%] mb-6 sm:mb-9 text-center sm:text-left">
                     Our multi-business vendor app brings together Beauty & Personal Care, Creative & Media Services, Event Services, and Rentals under a single ecosystem. We make the entire process simple and transparent
                 </p>
 
-                <CustomButton className="gradient-bg px-6 sm:px-9 py-3 rounded-full text-white mb-5 sm:mb-15 text-base sm:text-lg w-fit">
-                    About Us
-                </CustomButton>
+                <div className='w-full flex justify-center sm:justify-start'>
+                    <CustomButton className="gradient-bg px-6 sm:px-9 py-3 rounded-full text-white mb-5 sm:mb-15 text-base sm:text-lg w-fit">
+                        About Us
+                    </CustomButton>
+                </div>
 
 
 

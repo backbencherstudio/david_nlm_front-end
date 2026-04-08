@@ -76,8 +76,8 @@ const ServiceOverview = () => {
 
         <Container className='py-10 lg:py-30 space-y-12'>
             <div className='flex flex-col items-center justify-center gap-4'>
-                <h2 className='text-[2.5rem] font-semibold capitalize leading-[130%] text-center'>Our Core Services overview</h2>
-                <p className='text-lg leading-[160%] max-w-[600px] mx-auto text-center text-descriptionColor'>Our core services are designed to deliver seamless, high-quality solutions tailored to your needs. Ensure exceptional results at every stage</p>
+                <h2 className='text-2xl sm:text-[2.5rem] font-semibold capitalize leading-[130%] text-center'>Our Core Services overview</h2>
+                <p className='text-sm sm:text-lg leading-[160%] max-w-[600px] mx-auto text-center text-descriptionColor'>Our core services are designed to deliver seamless, high-quality solutions tailored to your needs. Ensure exceptional results at every stage</p>
             </div>
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7.5'>
