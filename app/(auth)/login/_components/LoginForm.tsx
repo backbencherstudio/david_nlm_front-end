@@ -51,7 +51,7 @@ const LoginForm = () => {
         </div>
       </div>
 
-      <CustomButton className="w-full gradient-bg rounded-2xl py-2 px-3 flex justify-center text-white text-sm">
+      <CustomButton className="w-full gradient-bg rounded-2xl py-2 px-3 flex justify-center text-white text-sm h-12">
         Login
       </CustomButton>
 
@@ -67,12 +67,12 @@ const LoginForm = () => {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4">
-          <CustomButton className="flex-1 flex items-center justify-center gap-2 w-full border border-borderColor rounded-2xl py-2 px-3" fullWidth>
+          <CustomButton className="flex-1 flex items-center justify-center gap-2 w-full border border-borderColor rounded-2xl py-2 px-3 h-12" fullWidth>
             <GoogleIcon />
             Google
           </CustomButton>
 
-          <CustomButton className="flex-1 flex items-center justify-center gap-2 w-full border border-borderColor rounded-2xl py-2 px-3" fullWidth>
+          <CustomButton className="flex-1 flex items-center justify-center gap-2 w-full border border-borderColor rounded-2xl py-2 px-3 h-12" fullWidth>
             <AppleIconBlack />
             Apple
           </CustomButton>

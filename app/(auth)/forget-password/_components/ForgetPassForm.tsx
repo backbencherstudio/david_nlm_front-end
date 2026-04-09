@@ -21,7 +21,7 @@ const ForgetPassForm = () => {
         />
       </div>
 
-      <CustomButton className="w-full gradient-bg rounded-2xl py-2 px-3 flex justify-center text-white text-sm">
+      <CustomButton className="w-full gradient-bg rounded-2xl py-2 px-3 flex justify-center text-white text-sm h-12">
         Send OTP
       </CustomButton>
 

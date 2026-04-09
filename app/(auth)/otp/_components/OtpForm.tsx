@@ -130,7 +130,7 @@ const OtpForm = ({
           "flex justify-center items-center gap-2",
           "text-white text-sm font-medium",
           "transition-opacity duration-150",
-          "disabled:opacity-60 disabled:cursor-not-allowed"
+          "disabled:opacity-60 disabled:cursor-not-allowed h-12"
         )}
       >
         <StatusIcon status={status} />
