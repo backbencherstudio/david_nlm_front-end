@@ -26,11 +26,11 @@ const WhyChoose = () => {
     return (
         <Container className='py-10 lg:py-30 space-y-12'>
             <div>
-                <h2 className='text-2xl sm:text-[2.5rem] font-semibold capitalize leading-[130%] text-center'>Why Choose Our Platform</h2>
-                <p className='text-sm sm:text-lg leading-[160%] max-w-2xl mx-auto text-center text-descriptionColor'>Our platform is designed to make your experience simple, reliable, and efficient. We bring everything together in one place so you can manage</p>
+                <h2 className='text-2xl sm:text-[2.5rem] font-semibold capitalize leading-[130%] text-center text-blackColor dark:text-white'>Why Choose Our Platform</h2>
+                <p className='text-sm sm:text-lg leading-[160%] max-w-2xl mx-auto text-center text-descriptionColor dark:text-white'>Our platform is designed to make your experience simple, reliable, and efficient. We bring everything together in one place so you can manage</p>
             </div>
 
-            <div className='grid grid-cols-1 md:grid-cols-3 gap-7.5'>
+            <div className='grid grid-cols-1 xl:grid-cols-3 gap-7.5'>
                 {whyChooseData.map((item, index) => (
                     <WhyChooseCard key={index} item={item} />
                 ))}

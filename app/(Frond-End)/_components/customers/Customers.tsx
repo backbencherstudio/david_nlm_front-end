@@ -31,7 +31,7 @@ const customerData = [
 
 const Customers = () => {
     return (
-        <Container className='py-5 sm:py-30'>
+        <Container className='py-5 lg:py-30'>
             <div className='flex flex-col items-center justify-center space-y-3 sm:space-y-4 text-center'>
                 <h2 className='text-2xl sm:text-[2.5rem] font-semibold text-blackColor leading-[130%] capitalize text-center '>Hear From Our Happy Customers</h2>
                 <p className='text-sm sm:text-base font-normal text-descriptionColor leading-[160%] max-w-full sm:max-w-[700px] text-center '>Hear directly from our customers about their experiences with us. Real stories, honest feedback, and trusted results that show how we deliver value every time</p>

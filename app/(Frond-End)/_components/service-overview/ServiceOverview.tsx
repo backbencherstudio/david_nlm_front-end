@@ -80,7 +80,7 @@ const ServiceOverview = () => {
                 <p className='text-sm sm:text-lg leading-[160%] max-w-[600px] mx-auto text-center text-descriptionColor'>Our core services are designed to deliver seamless, high-quality solutions tailored to your needs. Ensure exceptional results at every stage</p>
             </div>
 
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7.5'>
+            <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-7.5'>
                 {serviceOverviewData.map((service, index) => (
                     <ServiceOverviewCard key={service.id} {...service} isActive={index === 0} />
                 ))}
