@@ -20,14 +20,16 @@ export default function Home() {
         <PlatformWork />
       </div>
       <ServiceOverview />
-      <div className="bg-[#FAFAFA]">
+      <div className="bg-[#FAFAFA] dark:bg-background">
         <WhyChoose />
       </div>
       <GrowBusiness />
       <div className="bg-[#FAFAFA]">
         <Customers />
       </div>
-      <ZeroHassle />
+      <div className="dark:bg-blackColor">
+        <ZeroHassle />
+      </div>
     </div>
   );
 }

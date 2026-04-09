@@ -7,7 +7,7 @@ import Image from 'next/image'
 const ZeroHassle = () => {
     return (
         <Container className='py-10 sm:py-30 '>
-            <div className='flex flex-col lg:flex-row justify-between gap-8 lg:gap-15 items-center bg-bgColorOne rounded-2xl  border border-borderColor'>
+            <div className='flex flex-col lg:flex-row justify-between gap-8 lg:gap-15 items-center bg-bgColorOne dark:bg-white  rounded-2xl border border-borderColor '>
                 <div className='w-full lg:w-1/2 space-y-4 sm:space-y-9 p-4 sm:p-10'>
                     <div className='space-y-4'>
                         <h2 className='text-2xl sm:text-[2.5rem] font-semibold text-blackColor leading-[130%] capitalize text-center md:text-left'>One Platform, Unlimited Services, and Zero Hassle</h2>
