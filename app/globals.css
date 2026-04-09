@@ -31,6 +31,7 @@
   --color-purpleThree: var(--purpleThree);
   --color-borderColor: var(--borderColor);
   --color-bgColorOne: var(--bgColorOne);
+  --color-darkBg: var(--darkBg);
   /* ======== */
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -84,7 +85,8 @@
   --purpleTwo: #8F6CFD;
   --purpleThree: #8E5EF3;
   --borderColor: #E9E9EA;
-  --bgColorOne: #F8F6FF ;
+  --bgColorOne: #F8F6FF;
+  --darkBg: #0A0A0C;
   /* ========== */
   --radius: 0.625rem;
   --background: oklch(1 0 0);
@@ -160,7 +162,7 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-white text-blackColor;
   }
 }
 
@@ -194,4 +196,38 @@ input:checked~.checkmark {
 
 .gradient-bg {
   background: var(--Purple-shade, linear-gradient(90deg, #795FF4 0%, #8F6CFD 50.3%, #8E5EF3 100%));
+}
+
+.hero_bg_light {
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.20) 0%, rgba(255, 255, 255, 0.20) 100%), url(/heroBg.png) lightgray 50% / cover no-repeat;
+}
+
+.hero_bg_dark {
+  background: linear-gradient(0deg, rgba(10, 10, 12, 0.50) 0%, rgba(10, 10, 12, 0.50) 100%), url(/heroDarkBg.png) lightgray 50% / cover no-repeat;
+}
+
+.hero_wrapper {
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.20) 0%, rgba(255, 255, 255, 0.20) 100%), url(/heroBg.png) lightgray 50% / cover no-repeat;
+}
+
+.dark .hero_wrapper {
+  background: linear-gradient(0deg, rgba(10, 10, 12, 0.50) 0%, rgba(10, 10, 12, 0.50) 100%), url(/heroDarkBg.png) lightgray 50% / cover no-repeat;
+}
+
+.nav_container {
+  @apply bg-white;
+}
+
+.dark .nav_container {
+  border-radius: 100px;
+  border: 0.5px solid rgba(205, 193, 255, 0.20);
+  background: rgba(205, 193, 255, 0.10);
+  backdrop-filter: blur(6px);
+}
+
+.dark_nav_bg {
+  border-radius: 100px;
+  border: 0.5px solid rgba(205, 193, 255, 0.20);
+  background: rgba(205, 193, 255, 0.10);
+  backdrop-filter: blur(6px);
 }
