@@ -50,7 +50,7 @@ const supportLinks = [
 export default function Footer() {
   return (
     <footer>
-      <Container className="py-10 sm:pt-30 pb-10 sm:pb-20">
+      <Container className="py-10 lg:pt-30 pb-10 lg:pb-20">
         <div className="flex flex-col lg:flex-row  space-y-10">
           <div className="space-y-4">
             <div className="flex items-center gap-3">

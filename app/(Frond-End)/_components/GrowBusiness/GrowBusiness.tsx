@@ -35,7 +35,7 @@ const growBusinessData = [
 
 const GrowBusiness = () => {
     return (
-        <Container className='flex flex-col lg:flex-row gap-8 lg:gap-25 items-center py-10 sm:py-30'>
+        <Container className='flex flex-col lg:flex-row gap-8 lg:gap-25 items-center py-10 lg:py-30'>
             <div className='w-full lg:w-1/2'>
                 <div className='space-y-7'>
                     <div className='space-y-4'>
@@ -60,7 +60,7 @@ const GrowBusiness = () => {
                 </CustomButton></div>
             </div>
             <div className="w-full lg:w-1/2">
-                <div className="bg-bgColorOne pt-4 sm:pt-[2.563rem] pr-4 sm:pr-[2.563rem] pl-4 sm:pl-[2.563rem] rounded-2xl border
+                <div className="bg-bgColorOne pt-4 lg:pt-[2.563rem] px-4 lg:px-[2.563rem]   rounded-2xl border
                                  border-[#E7E0FF] flex justify-center items-center">
                     <Image
                         src="/growBusiness.png"

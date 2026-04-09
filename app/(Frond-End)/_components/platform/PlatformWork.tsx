@@ -34,7 +34,7 @@ const platformData = [
 const PlatformWork = () => {
     return (
 
-        <Container className="space-y-10 sm:space-y-12 px-4  py-5 sm:py-30 ">
+        <Container className="space-y-10 sm:space-y-12 px-4  py-5 lg:py-30 ">
 
             {/* Heading */}
             <div className="flex flex-col items-center justify-center space-y-3 sm:space-y-4 text-center">
@@ -54,7 +54,7 @@ const PlatformWork = () => {
 
                 {/* Image */}
                 <div className="w-full lg:w-1/2">
-                    <div className="bg-bgColorOne pt-[2.563rem] pr-[2.563rem] pl-[2.563rem] rounded-2xl border
+                    <div className="bg-bgColorOne pt-4 lg:pt-[2.563rem] px-4 lg:px-[2.563rem]  rounded-2xl border
                      border-[#E7E0FF] flex justify-center items-center">
                         <Image
                             src="/platform.png"

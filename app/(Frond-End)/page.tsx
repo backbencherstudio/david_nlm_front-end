@@ -1,4 +1,5 @@
 import AppBackground from "./_components/AppBackground";
+import HomeScrollToHash from "./_components/HomeScrollToHash";
 import GrowBusiness from "./_components/GrowBusiness/GrowBusiness";
 import HeroSection from "./_components/Hero/HeroSection";
 import ConnectPeople from "./_components/connect-people/ConnectPeople";
@@ -12,14 +13,23 @@ import ZeroHassle from "./_components/zero-hassle/ZeroHassle";
 export default function Home() {
   return (
     <div className="">
+      <HomeScrollToHash />
       <AppBackground>
-        <HeroSection />
+        <div id="home" className="scroll-mt-28">
+          <HeroSection />
+        </div>
       </AppBackground>
-      <ConnectPeople />
+      <section id="about" className="scroll-mt-28">
+        <ConnectPeople />
+      </section>
       <div className="bg-[#FAFAFA]">
-        <PlatformWork />
+        <section id="how-it-works" className="scroll-mt-28">
+          <PlatformWork />
+        </section>
       </div>
-      <ServiceOverview />
+      <section id="services" className="scroll-mt-28">
+        <ServiceOverview />
+      </section>
       <div className="bg-[#FAFAFA] dark:bg-background">
         <WhyChoose />
       </div>

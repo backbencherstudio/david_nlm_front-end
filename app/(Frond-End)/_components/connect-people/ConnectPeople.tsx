@@ -5,7 +5,7 @@ import React from 'react'
 
 const ConnectPeople = () => {
     return (
-        <Container className="flex flex-col md:flex-row items-center gap-10 md:gap-20 pt-5 md:pt-12.5 pb-10 md:pb-30">
+        <Container className="flex flex-col md:flex-row items-center gap-10 md:gap-20 pt-5 md:pt-12.5 pb-10 lg:pb-30">
 
             {/* Left Content */}
             <div className="flex flex-col w-full md:w-1/2">

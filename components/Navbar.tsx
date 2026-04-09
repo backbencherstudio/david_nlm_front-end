@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { HiOutlineMenu, HiX } from "react-icons/hi";
 import Image from "next/image";
 
@@ -13,12 +13,22 @@ import { useTheme } from "@/hooks/useTheme";
 import { ThemeToggle } from "@/app/(Frond-End)/_components/theme/ThemeToggle";
 
 const menuItems = [
-  { en: "Home", slug: "/" },
-  { en: "About Us", slug: "/about" },
-  { en: "How It Wroks", slug: "/how-it-works" },
-  { en: "Services", slug: "/services" },
+  { en: "Home", href: "/", hash: "home" },
+  { en: "About Us", href: "/#about", hash: "about" },
+  { en: "How It Works", href: "/#how-it-works", hash: "how-it-works" },
+  { en: "Services", href: "/#services", hash: "services" },
+] as const;
 
-];
+function scrollToSection(hash: string) {
+  if (hash === "home") {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.history.replaceState(null, "", "/");
+    return;
+  }
+  const el = document.getElementById(hash);
+  el?.scrollIntoView({ behavior: "smooth" });
+  window.history.replaceState(null, "", `/#${hash}`);
+}
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -26,6 +36,33 @@ export default function Navbar() {
   const isDark = resolvedTheme === "dark";
 
   const [menuOpen, setMenuOpen] = useState(false);
+  const [hash, setHash] = useState("");
+
+  useEffect(() => {
+    const update = () => setHash(typeof window !== "undefined" ? window.location.hash : "");
+    update();
+    window.addEventListener("hashchange", update);
+    return () => window.removeEventListener("hashchange", update);
+  }, []);
+
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    itemHash: string,
+  ) => {
+    if (pathname !== "/") return;
+    e.preventDefault();
+    scrollToSection(itemHash);
+    setHash(itemHash === "home" ? "" : `#${itemHash}`);
+    setMenuOpen(false);
+  };
+
+  const linkIsActive = (itemHash: string) => {
+    if (pathname !== "/") return false;
+    if (itemHash === "home") {
+      return hash === "" || hash === "#" || hash === "#home";
+    }
+    return hash === `#${itemHash}`;
+  };
 
   return (
     <Container className="mt-4 relative z-50">
@@ -39,15 +76,16 @@ export default function Navbar() {
         {/* Desktop Menu */}
         <nav className="hidden lg:flex space-x-8 text-base">
           {menuItems.map((item) => {
-            const isActive = pathname === item.slug;
+            const isActive = linkIsActive(item.hash);
 
             return (<Link
-              key={item.slug}
-              href={item.slug}
+              key={item.hash}
+              href={item.href}
+              onClick={(e) => handleNavClick(e, item.hash)}
               className={cn(
                 "hover:text-purpleColor transition text-lg dark:text-white",
                 isActive
-                  ? "text-blackColor"
+                  ? "text-blackColor dark:text-white font-medium"
                   : "text-descriptionColor",
               )}
             >
@@ -102,19 +140,19 @@ export default function Navbar() {
           </div>
 
           {menuItems.map((item) => {
-            const isActive = pathname === item.slug;
+            const isActive = linkIsActive(item.hash);
 
             return (
               <Link
-                key={item.slug}
-                href={item.slug}
+                key={item.hash}
+                href={item.href}
                 className={cn(
                   "block text-base py-2 dark:text-white",
                   isActive
-                    ? "text-blackColor"
+                    ? "text-blackColor font-medium"
                     : "text-descriptionColor",
                 )}
-                onClick={() => setMenuOpen(false)}
+                onClick={(e) => handleNavClick(e, item.hash)}
               >
                 {item.en}
               </Link>
