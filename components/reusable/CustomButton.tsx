@@ -3,6 +3,8 @@ function CustomButton({ children, className ,fullWidth}: {
   children: React.ReactNode
   className?: string,
   fullWidth?: boolean
+  onClick?: () => void
+  disabled?: boolean
 }) {
   return (
     <div className={`text-center ${fullWidth ? 'w-full' : ''}`}>

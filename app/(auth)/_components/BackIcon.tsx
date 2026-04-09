@@ -2,7 +2,7 @@ import React from "react";
 
 const BackIcon = () => {
   return (
-    <div className="h-10 w-10 p-2.5 rounded-[0.625rem] bg-[#F6F8FA] cursor-pointer">
+    <div className="h-10 w-10 p-2.5 rounded-[0.625rem] bg-grayBg cursor-pointer">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="18"

@@ -1,12 +1,11 @@
-import React from "react";
 import DashboardContainer from "@/app/(admin)/dashboard/_components/DashboardContainer";
-import Image from "next/image";
-import AuthRightSection from "../_components/AuthRightSection";
-import LoginForm from "../login/_components/LoginForm";
-import ForgetPassForm from "./_components/ForgetPassForm";
+import React from "react";
 import BackIcon from "../_components/BackIcon";
+import ForgetPassForm from "../forget-password/_components/ForgetPassForm";
+import AuthRightSection from "../_components/AuthRightSection";
+import OtpForm from "./_components/OtpForm";
 
-const ForgetPasswordPage = () => {
+const OTPPage = () => {
   return (
     <DashboardContainer className="flex flex-col lg:flex-row min-h-screen">
       {/* LEFT SECTION */}
@@ -17,17 +16,17 @@ const ForgetPasswordPage = () => {
             <BackIcon />
             <div className="space-y-2">
               <h2 className="text-blackColor text-2xl sm:text-[2rem] font-semibold leading-[130%]">
-                Enter Password
+                Enter OTP
               </h2>
               <p className="text-descriptionColor text-base leading-[160%]">
-                Enter your registered email address. we’ll send you a code to
-                reset your password.
+                We have share a code of your registered email address
+                robert.fox@example.com
               </p>
             </div>
           </div>
 
           {/* Form */}
-          <ForgetPassForm />
+          <OtpForm />
         </div>
       </div>
 
@@ -37,4 +36,4 @@ const ForgetPasswordPage = () => {
   );
 };
 
-export default ForgetPasswordPage;
+export default OTPPage;

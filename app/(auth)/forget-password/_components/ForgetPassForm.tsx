@@ -1,16 +1,9 @@
 "use client";
 
-import React from "react";
 import CustomButton from "@/components/reusable/CustomButton";
 import ReusableInput from "@/components/reusable/InputFiled/ReusableInput";
-import AppleIcon from "@/icons/AppleIcon";
 import EmailIcon from "@/icons/EmailIcon";
-import GoogleIcon from "@/icons/GoogleIcon";
-import LockIcon from "@/icons/LockIcon";
-import { Checkbox } from "@/components/ui/checkbox";
-import HorizontalLineIcon from "@/icons/HorizontalLineIcon";
-import AppleIconBlack from "@/icons/AppleIconBlack";
-import LoginForm from "../../login/_components/LoginForm";
+
 
 const ForgetPassForm = () => {
 

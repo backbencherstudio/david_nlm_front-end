@@ -33,6 +33,7 @@
   --color-bgColorOne: var(--bgColorOne);
   --color-darkBg: var(--darkBg);
   --color-progressBarBg: var(--progressBarBg);
+  --color-grayBg: var(--grayBg);
   /* ======== */
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -89,6 +90,7 @@
   --bgColorOne: #f8f6ff;
   --darkBg: #0a0a0c;
   --progressBarBg: #a5a5ab;
+  --grayBg: #F6F8FA;
   /* ========== */
   --radius: 0.625rem;
   --background: oklch(1 0 0);
