@@ -3,7 +3,7 @@ import React from 'react'
 export const ChevronLeft = () => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="9" height="22" viewBox="0 0 9 22" fill="none">
-      <path d="M8.25 20.75C8.25 20.75 0.75 13.385 0.75 10.75C0.75 8.11475 8.25 0.75 8.25 0.75" stroke="#070707" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M8.25 20.75C8.25 20.75 0.75 13.385 0.75 10.75C0.75 8.11475 8.25 0.75 8.25 0.75" stroke="#070707" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   )
 }
