@@ -88,7 +88,7 @@
   --borderColor: #e9e9ea;
   --bgColorOne: #f8f6ff;
   --darkBg: #0a0a0c;
-  --progressBarBg: #A5A5AB;
+  --progressBarBg: #a5a5ab;
   /* ========== */
   --radius: 0.625rem;
   --background: oklch(1 0 0);
@@ -253,7 +253,7 @@ input:checked ~ .checkmark {
 }
 
 .login_right_section_bg {
- border-radius: 37.444px 0 0 0;
-background: #000;
-box-shadow: 0 0 37.444px 0 rgba(0, 0, 0, 0.80);
+  border-radius: 37.444px 0 0 0;
+  background: #000;
+  box-shadow: 0 0 37.444px 0 rgba(0, 0, 0, 0.8);
 }

@@ -1,12 +1,12 @@
-import DashboardContainer from "@/app/(admin)/dashboard/_components/DashboardContainer";
+import React from 'react'
+import DashboardContainer from '@/app/(admin)/dashboard/_components/DashboardContainer'
+import Image from 'next/image'
+import AuthRightSection from '../_components/AuthRightSection'
+import LoginForm from '../login/_components/LoginForm'
+import ForgetPassForm from './_components/ForgetPassForm'
+import BackIcon from '../_components/BackIcon'
 
-import Image from "next/image";
-import React from "react";
-import LoginForm from "./_components/LoginForm";
-import AuthRightSection from "../_components/AuthRightSection";
-
-const LoginPage = () => {
-
+const ForgetPasswordPage = () => {
   return (
     <DashboardContainer className="flex flex-col lg:flex-row min-h-screen">
 
@@ -16,24 +16,20 @@ const LoginPage = () => {
 
           {/* Header */}
           <div className="space-y-6">
-            <Image
-              src={"/site_logo.png"}
-              width={40}
-              height={40}
-              alt="login image"
-            />
+            <BackIcon />
             <div className="space-y-2">
               <h2 className="text-blackColor text-2xl sm:text-[2rem] font-semibold leading-[130%]">
-                Login to your account
+                    Enter Password
               </h2>
               <p className="text-descriptionColor text-base leading-[160%]">
-                Enter your email and password to log in
+                Enter your registered email address. we’ll send you a code 
+to reset your password.
               </p>
             </div>
           </div>
 
           {/* Form */}
-        <LoginForm />
+       <ForgetPassForm />
 
         </div>
       </div>
@@ -42,7 +38,7 @@ const LoginPage = () => {
       <AuthRightSection />
 
     </DashboardContainer>
-  );
-};
+  )
+}
 
-export default LoginPage;
+export default ForgetPasswordPage
