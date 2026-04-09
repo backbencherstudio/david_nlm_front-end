@@ -32,6 +32,7 @@
   --color-borderColor: var(--borderColor);
   --color-bgColorOne: var(--bgColorOne);
   --color-darkBg: var(--darkBg);
+  --color-progressBarBg: var(--progressBarBg);
   /* ======== */
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -81,12 +82,13 @@
   --bgColor: rgba(243, 243, 244, 0.5);
   --descriptionColor: #4a4c56;
   --purpleColor: #ad46ff;
-  --purpleOne: #795FF4;
-  --purpleTwo: #8F6CFD;
-  --purpleThree: #8E5EF3;
-  --borderColor: #E9E9EA;
-  --bgColorOne: #F8F6FF;
-  --darkBg: #0A0A0C;
+  --purpleOne: #795ff4;
+  --purpleTwo: #8f6cfd;
+  --purpleThree: #8e5ef3;
+  --borderColor: #e9e9ea;
+  --bgColorOne: #f8f6ff;
+  --darkBg: #0a0a0c;
+  --progressBarBg: #A5A5AB;
   /* ========== */
   --radius: 0.625rem;
   --background: oklch(1 0 0);
@@ -172,7 +174,7 @@
   opacity: 1 !important;
 }
 
-input:checked~.checkmark {
+input:checked ~ .checkmark {
   background-color: var(--color-green-600);
 }
 
@@ -193,25 +195,43 @@ input:checked~.checkmark {
   border-radius: 50%;
 }
 
-
 .gradient-bg {
-  background: var(--Purple-shade, linear-gradient(90deg, #795FF4 0%, #8F6CFD 50.3%, #8E5EF3 100%));
+  background: var(
+    --Purple-shade,
+    linear-gradient(90deg, #795ff4 0%, #8f6cfd 50.3%, #8e5ef3 100%)
+  );
 }
 
 .hero_bg_light {
-  background: linear-gradient(0deg, rgba(255, 255, 255, 0.20) 0%, rgba(255, 255, 255, 0.20) 100%), url(/heroBg.png) lightgray 50% / cover no-repeat;
+  background:
+    linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0.2) 100%
+    ),
+    url(/heroBg.png) lightgray 50% / cover no-repeat;
 }
 
 .hero_bg_dark {
-  background: linear-gradient(0deg, rgba(10, 10, 12, 0.50) 0%, rgba(10, 10, 12, 0.50) 100%), url(/heroDarkBg.png) lightgray 50% / cover no-repeat;
+  background:
+    linear-gradient(0deg, rgba(10, 10, 12, 0.5) 0%, rgba(10, 10, 12, 0.5) 100%),
+    url(/heroDarkBg.png) lightgray 50% / cover no-repeat;
 }
 
 .hero_wrapper {
-  background: linear-gradient(0deg, rgba(255, 255, 255, 0.20) 0%, rgba(255, 255, 255, 0.20) 100%), url(/heroBg.png) lightgray 50% / cover no-repeat;
+  background:
+    linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0.2) 100%
+    ),
+    url(/heroBg.png) lightgray 50% / cover no-repeat;
 }
 
 .dark .hero_wrapper {
-  background: linear-gradient(0deg, rgba(10, 10, 12, 0.50) 0%, rgba(10, 10, 12, 0.50) 100%), url(/heroDarkBg.png) lightgray 50% / cover no-repeat;
+  background:
+    linear-gradient(0deg, rgba(10, 10, 12, 0.5) 0%, rgba(10, 10, 12, 0.5) 100%),
+    url(/heroDarkBg.png) lightgray 50% / cover no-repeat;
 }
 
 .nav_container {
@@ -220,14 +240,20 @@ input:checked~.checkmark {
 
 .dark .nav_container {
   border-radius: 100px;
-  border: 0.5px solid rgba(205, 193, 255, 0.20);
-  background: rgba(205, 193, 255, 0.10);
+  border: 0.5px solid rgba(205, 193, 255, 0.2);
+  background: rgba(205, 193, 255, 0.1);
   backdrop-filter: blur(6px);
 }
 
 .dark_nav_bg {
   border-radius: 100px;
-  border: 0.5px solid rgba(205, 193, 255, 0.20);
-  background: rgba(205, 193, 255, 0.10);
+  border: 0.5px solid rgba(205, 193, 255, 0.2);
+  background: rgba(205, 193, 255, 0.1);
   backdrop-filter: blur(6px);
+}
+
+.login_right_section_bg {
+ border-radius: 37.444px 0 0 0;
+background: #000;
+box-shadow: 0 0 37.444px 0 rgba(0, 0, 0, 0.80);
 }

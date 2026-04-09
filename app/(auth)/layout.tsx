@@ -4,7 +4,7 @@ import { ThemeProvider } from "@/providers/ThemeProvider";
 import { ThemeScript } from "@/providers/ThemeScript";
 import "../globals.css";
 
-export default function FrontEndLayout({
+export default function AuthLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -16,10 +16,10 @@ export default function FrontEndLayout({
       </head>
       <body>
         <ThemeProvider>
-          <Navbar />
+        
           {children}
           <div className="bg-[#FAFAFA] dark:bg-background">
-            <Footer />
+          
           </div>
         </ThemeProvider>
       </body>
