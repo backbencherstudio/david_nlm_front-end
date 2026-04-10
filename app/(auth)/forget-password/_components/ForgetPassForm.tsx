@@ -3,6 +3,7 @@
 import CustomButton from "@/components/reusable/CustomButton";
 import ReusableInput from "@/components/reusable/InputFiled/ReusableInput";
 import EmailIcon from "@/icons/EmailIcon";
+import { GenericButton } from "../../_components/GenericButton";
 
 
 const ForgetPassForm = () => {
@@ -21,9 +22,7 @@ const ForgetPassForm = () => {
         />
       </div>
 
-      <CustomButton className="w-full gradient-bg rounded-2xl py-2 px-3 flex justify-center text-white text-sm h-12">
-        Send OTP
-      </CustomButton>
+     <GenericButton variant="primary" size="md" fullWidth onClick={() => console.log("Reset link sent")}>Send OTP</GenericButton>
 
    
     </div>

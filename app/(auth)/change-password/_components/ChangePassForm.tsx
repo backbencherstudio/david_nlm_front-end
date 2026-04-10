@@ -5,6 +5,7 @@ import ReusableInput from "@/components/reusable/InputFiled/ReusableInput";
 import EmailIcon from "@/icons/EmailIcon";
 import LockIcon from "@/icons/LockIcon";
 import React from "react";
+import { GenericButton } from "../../_components/GenericButton";
 
 const ChangePassForm = () => {
   const [showPassword, setShowPassword] = React.useState(false);
@@ -27,18 +28,25 @@ const ChangePassForm = () => {
       </div>
 
       <div className="space-y-5">
-        <CustomButton className="w-full gradient-bg rounded-2xl py-2 px-3 flex justify-center text-white text-sm h-12">
-          Set Password
-        </CustomButton>
-
-        <CustomButton
-          className="w-full   rounded-2xl py-2 px-3 flex
-         justify-center border border-purpleOne bg-gradient-to-r 
-         from-purpleOne via-purpleTwo to-purpleThree bg-clip-text
-          text-transparent text-sm font-semibold h-12"
+        <GenericButton
+          variant="primary"
+          size="md"
+          rounded="2xl"
+          onClick={() => console.log("Saved")}
+          fullWidth
         >
-          Back to Sign in
-        </CustomButton>
+         Set Password
+        </GenericButton>
+
+         <GenericButton
+          variant="outline"
+          size="md"
+          rounded="2xl"
+          onClick={() => console.log("Saved")}
+          fullWidth
+        >
+         Back to sign in
+        </GenericButton>
       </div>
 
       {/* Social Login */}

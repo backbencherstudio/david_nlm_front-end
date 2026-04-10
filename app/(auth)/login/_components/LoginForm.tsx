@@ -10,6 +10,7 @@ import LockIcon from "@/icons/LockIcon";
 import { Checkbox } from "@/components/ui/checkbox";
 import HorizontalLineIcon from "@/icons/HorizontalLineIcon";
 import AppleIconBlack from "@/icons/AppleIconBlack";
+import GenericButton from "../../_components/GenericButton";
 
 const LoginForm = () => {
   const [showPassword, setShowPassword] = React.useState(false);
@@ -39,40 +40,45 @@ const LoginForm = () => {
         />
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-          {" "}
-          <Checkbox className="" />
-          <span className="text-xs text-descriptionColor leading-[160%]">
-            Remember me
+            {" "}
+            <Checkbox className="" />
+            <span className="text-xs text-descriptionColor leading-[160%]">
+              Remember me
+            </span>
+          </div>
+          <span className="text-sm bg-gradient-to-r from-purpleOne via-purpleTwo to-purpleThree bg-clip-text text-transparent cursor-pointer">
+            Forgot your password?
           </span>
-        </div>
-        <span className="text-sm bg-gradient-to-r from-purpleOne via-purpleTwo to-purpleThree bg-clip-text text-transparent cursor-pointer">
-          Forgot your password?
-        </span>
         </div>
       </div>
 
-      <CustomButton className="w-full gradient-bg rounded-2xl py-2 px-3 flex justify-center text-white text-sm h-12">
-        Login
-      </CustomButton>
+      <GenericButton variant="primary" size="md" rounded="2xl" fullWidth onClick={() => console.log("Logged in")}>
+        Log in
+      </GenericButton>
 
       {/* Social Login */}
       <div className="space-y-4">
-        
         <div className="flex justify-center items-center gap-2">
-         <HorizontalLineIcon />
+          <HorizontalLineIcon />
           <p className="text-center text-descriptionColor text-sm leading-[160%] whitespace-nowrap">
-          Or continue  with
-        </p>
+            Or continue with
+          </p>
           <HorizontalLineIcon />
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4">
-          <CustomButton className="flex-1 flex items-center justify-center gap-2 w-full border border-borderColor rounded-2xl py-2 px-3 h-12" fullWidth>
+          <CustomButton
+            className="flex-1 flex items-center justify-center gap-2 w-full border border-borderColor rounded-2xl py-2 px-3 h-12"
+            fullWidth
+          >
             <GoogleIcon />
             Google
           </CustomButton>
 
-          <CustomButton className="flex-1 flex items-center justify-center gap-2 w-full border border-borderColor rounded-2xl py-2 px-3 h-12" fullWidth>
+          <CustomButton
+            className="flex-1 flex items-center justify-center gap-2 w-full border border-borderColor rounded-2xl py-2 px-3 h-12"
+            fullWidth
+          >
             <AppleIconBlack />
             Apple
           </CustomButton>

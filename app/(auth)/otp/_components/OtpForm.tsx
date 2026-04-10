@@ -1,11 +1,11 @@
 "use client";
 
-import { useOtp, } from "@/hooks/useOtp";
+import { useOtp } from "@/hooks/useOtp";
 import CustomButton from "@/components/reusable/CustomButton";
-import { cn } from "@/lib/utils"; 
+import { cn } from "@/lib/utils";
 import { OtpCell } from "./OtpCell";
 import { StatusIcon } from "./StatusIcon";
-
+import GenericButton from "../../_components/GenericButton";
 
 interface OtpFormProps {
   length?: number;
@@ -13,7 +13,6 @@ interface OtpFormProps {
   label?: string;
   hint?: string;
 }
-
 
 const OtpForm = ({
   length = 6,
@@ -121,25 +120,23 @@ const OtpForm = ({
       )}
 
       {/* Submit */}
-      <CustomButton
+      <GenericButton
+        variant="primary"
+        size="md"
+        fullWidth
+        rounded="2xl"
         onClick={handleSubmit}
         disabled={!isComplete || status === "loading" || status === "success"}
         aria-disabled={!isComplete || status === "loading"}
-        className={cn(
-          "w-full gradient-bg rounded-2xl py-2 px-3",
-          "flex justify-center items-center gap-2",
-          "text-white text-sm font-medium",
-          "transition-opacity duration-150",
-          "disabled:opacity-60 disabled:cursor-not-allowed h-12"
-        )}
       >
+        {" "}
         <StatusIcon status={status} />
         {status === "loading"
           ? "Verifying…"
           : status === "success"
-          ? "Verified"
-          : "Submit"}
-      </CustomButton>
+            ? "Verified"
+            : "Submit"}
+      </GenericButton>
     </div>
   );
 };
