@@ -142,7 +142,7 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
             textColorKey="purple"
           />
 
-          <SidebarIcon />
+          <SidebarIcon onclick={() => setIsCollapsed(!isCollapsed)} />
         </div>
 
         {/* Navigation Section */}
@@ -212,7 +212,7 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
                     />
                   </div>
                   <span
-                    className={`text-base font-medium text-descriptionColor group-hover:text-blackColor transition-colors duration-200 whitespace-nowrap `}
+                    className={`text-base font-medium text-descriptionColor group-hover:text-purpleOne transition-colors duration-200 whitespace-nowrap `}
                   >
                     {item.label}
                   </span>

@@ -1,7 +1,5 @@
 import DashboardContainer from "@/components/Dashboard/DashboardContainer";
-import React from "react";
 import BackIcon from "../../../components/Dashboard/auth/BackIcon";
-import ForgetPassForm from "../../../components/Dashboard/auth/forget-password/ForgetPassForm";
 import AuthRightSection from "../../../components/Dashboard/auth/AuthRightSection";
 import OtpForm from "../../../components/Dashboard/auth/otp/OtpForm";
 
