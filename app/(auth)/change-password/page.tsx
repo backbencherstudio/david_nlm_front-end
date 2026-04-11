@@ -1,9 +1,9 @@
-import DashboardContainer from "@/app/(admin)/dashboard/_components/DashboardContainer";
+import DashboardContainer from "@/components/Dashboard/DashboardContainer";
 import React from "react";
-import AuthRightSection from "../_components/AuthRightSection";
+import AuthRightSection from "../../../components/Dashboard/auth/AuthRightSection";
 import LoginForm from "../login/_components/LoginForm";
-import BackIcon from "../_components/BackIcon";
-import ChangePassForm from "./_components/ChangePassForm";
+import BackIcon from "../../../components/Dashboard/auth/BackIcon";
+import ChangePassForm from "../../../components/Dashboard/auth/change-password/ChangePassForm";
 
 const ChangePassword = () => {
   return (

@@ -1,10 +1,10 @@
 import React from "react";
-import DashboardContainer from "@/app/(admin)/dashboard/_components/DashboardContainer";
+import DashboardContainer from "@/components/Dashboard/DashboardContainer";
 import Image from "next/image";
-import AuthRightSection from "../_components/AuthRightSection";
+import AuthRightSection from "../../../components/Dashboard/auth/AuthRightSection";
 import LoginForm from "../login/_components/LoginForm";
-import ForgetPassForm from "./_components/ForgetPassForm";
-import BackIcon from "../_components/BackIcon";
+import ForgetPassForm from "../../../components/Dashboard/auth/forget-password/ForgetPassForm";
+import BackIcon from "../../../components/Dashboard/auth/BackIcon";
 
 const ForgetPasswordPage = () => {
   return (

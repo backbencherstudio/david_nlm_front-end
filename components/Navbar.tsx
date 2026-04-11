@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 import Container from "@/app/_components/Container";
 import { MoonIcon, SunIcon } from "lucide-react";
 import { useTheme } from "@/hooks/useTheme";
-import { ThemeToggle } from "@/app/(Frond-End)/_components/theme/ThemeToggle";
+import { ThemeToggle } from "@/components/landing-page/theme/ThemeToggle";
 
 const menuItems = [
   { en: "Home", href: "/", hash: "home" },
@@ -96,7 +96,7 @@ export default function Navbar() {
 
         {/* Right: Language, Auth Buttons */}
         <div className="flex justify-end items-center space-x-[14px]">
-         <ThemeToggle />
+          <ThemeToggle />
           <Link
             href="#"
             className="hidden lg:flex gradient-bg text-white font-medium cursor-pointer  px-9 py-3.5 rounded-full text-lg"

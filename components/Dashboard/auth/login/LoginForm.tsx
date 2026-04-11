@@ -10,7 +10,7 @@ import LockIcon from "@/icons/LockIcon";
 import { Checkbox } from "@/components/ui/checkbox";
 import HorizontalLineIcon from "@/icons/HorizontalLineIcon";
 import AppleIconBlack from "@/icons/AppleIconBlack";
-import GenericButton from "../../_components/GenericButton";
+import GenericButton from "../GenericButton";
 
 const LoginForm = () => {
   const [showPassword, setShowPassword] = React.useState(false);

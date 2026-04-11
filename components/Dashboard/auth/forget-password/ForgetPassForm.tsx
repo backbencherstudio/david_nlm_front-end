@@ -3,7 +3,7 @@
 import CustomButton from "@/components/reusable/CustomButton";
 import ReusableInput from "@/components/reusable/InputFiled/ReusableInput";
 import EmailIcon from "@/icons/EmailIcon";
-import { GenericButton } from "../../_components/GenericButton";
+import { GenericButton } from "../GenericButton";
 
 
 const ForgetPassForm = () => {

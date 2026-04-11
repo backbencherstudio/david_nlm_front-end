@@ -1,8 +1,8 @@
-import DashboardContainer from "@/app/(admin)/dashboard/_components/DashboardContainer";
+import DashboardContainer from "@/components/Dashboard/DashboardContainer";
 import Image from "next/image";
 import React from "react";
-import AuthRightSection from "../_components/AuthRightSection";
-import ConfirmationPassForm from "@/components/Dashboard/confirmation-pass/ConfirmationPassForm";
+import AuthRightSection from "../../../components/Dashboard/auth/AuthRightSection";
+import ConfirmationPassForm from "@/components/Dashboard/auth/confirmation-pass/ConfirmationPassForm";
 import CircleTickIcon from "@/icons/CircleTickIcon";
 import ConfirmIcon from "@/icons/ConfirmIcon";
 

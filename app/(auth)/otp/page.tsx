@@ -1,9 +1,9 @@
-import DashboardContainer from "@/app/(admin)/dashboard/_components/DashboardContainer";
+import DashboardContainer from "@/components/Dashboard/DashboardContainer";
 import React from "react";
-import BackIcon from "../_components/BackIcon";
-import ForgetPassForm from "../forget-password/_components/ForgetPassForm";
-import AuthRightSection from "../_components/AuthRightSection";
-import OtpForm from "./_components/OtpForm";
+import BackIcon from "../../../components/Dashboard/auth/BackIcon";
+import ForgetPassForm from "../../../components/Dashboard/auth/forget-password/ForgetPassForm";
+import AuthRightSection from "../../../components/Dashboard/auth/AuthRightSection";
+import OtpForm from "../../../components/Dashboard/auth/otp/OtpForm";
 
 const OTPPage = () => {
   return (

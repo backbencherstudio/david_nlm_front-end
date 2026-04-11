@@ -5,7 +5,7 @@ import ReusableInput from "@/components/reusable/InputFiled/ReusableInput";
 import EmailIcon from "@/icons/EmailIcon";
 import LockIcon from "@/icons/LockIcon";
 import React from "react";
-import { GenericButton } from "../../_components/GenericButton";
+import { GenericButton } from "../GenericButton";
 import CircleTickIcon from "@/icons/CircleTickIcon";
 
 const ChangePassForm = () => {
@@ -43,13 +43,13 @@ const ChangePassForm = () => {
 
         <div className="grid grid-cols-2 gap-y-3">
           <div className="flex items-center gap-2">
-            <CircleTickIcon color="#795FF4"/> <p className="text-xs leading-[160%] font-medium text-grayColor1">8 characters minimum</p>
+            <CircleTickIcon color="#795FF4" /> <p className="text-xs leading-[160%] font-medium text-grayColor1">8 characters minimum</p>
           </div>
           <div className="flex items-center gap-2">
-            <CircleTickIcon color="#795FF4"/> <p className="text-xs leading-[160%] font-medium text-grayColor1">numbers (0-9)</p>
+            <CircleTickIcon color="#795FF4" /> <p className="text-xs leading-[160%] font-medium text-grayColor1">numbers (0-9)</p>
           </div>
           <div className="flex items-center gap-2">
-            <CircleTickIcon color="#795FF4"/> <p className="text-xs leading-[160%] font-medium text-grayColor1">uppercase letters (A-Z)</p>
+            <CircleTickIcon color="#795FF4" /> <p className="text-xs leading-[160%] font-medium text-grayColor1">uppercase letters (A-Z)</p>
           </div>
           <div className="flex items-center gap-2">
             <CircleTickIcon /> <p className="text-xs leading-[160%] font-medium text-grayColor1">special characters (!@#$%^&*)</p>

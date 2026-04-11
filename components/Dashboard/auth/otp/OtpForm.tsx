@@ -3,9 +3,9 @@
 import { useOtp } from "@/hooks/useOtp";
 import CustomButton from "@/components/reusable/CustomButton";
 import { cn } from "@/lib/utils";
+import GenericButton from "../GenericButton";
 import { OtpCell } from "./OtpCell";
 import { StatusIcon } from "./StatusIcon";
-import GenericButton from "../../_components/GenericButton";
 
 interface OtpFormProps {
   length?: number;

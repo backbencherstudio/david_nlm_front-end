@@ -1,9 +1,8 @@
-import DashboardContainer from "@/app/(admin)/dashboard/_components/DashboardContainer";
-
+import DashboardContainer from "@/components/Dashboard/DashboardContainer";
 import Image from "next/image";
 import React from "react";
-import LoginForm from "./_components/LoginForm";
-import AuthRightSection from "../_components/AuthRightSection";
+import AuthRightSection from "../../../components/Dashboard/auth/AuthRightSection";
+import LoginForm from "@/components/Dashboard/auth/login/LoginForm";
 
 const LoginPage = () => {
 
@@ -33,7 +32,7 @@ const LoginPage = () => {
           </div>
 
           {/* Form */}
-        <LoginForm />
+          <LoginForm />
 
         </div>
       </div>
