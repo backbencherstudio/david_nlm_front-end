@@ -39,7 +39,7 @@ function AdminMenu({ children }: { children: React.ReactNode }) {
           </div>
 
           {/* Main content area */}
-          <main className="flex-1 overflow-y-auto overflow-x-hidden text-headerColor p-6">
+          <main className="flex-1 overflow-y-auto overflow-x-hidden text-headerColor p-3 lg:p-6">
             {children}
             <ToastContainer />
           </main>

@@ -1,9 +1,9 @@
 import React from 'react'
 
-const ChevronRight = () => {
+const ChevronRight = ({ className, stroke = 'white' }: { className?: string, stroke?: string }) => {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" width="9" height="22" viewBox="0 0 9 22" fill="none">
-            <path d="M0.75 0.75C0.75 0.75 8.25 8.115 8.25 10.75C8.25 13.3852 0.75 20.75 0.75 20.75" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        <svg xmlns="http://www.w3.org/2000/svg" width="9" height="22" viewBox="0 0 9 22" fill="none" className={className}>
+            <path d="M0.75 0.75C0.75 0.75 8.25 8.115 8.25 10.75C8.25 13.3852 0.75 20.75 0.75 20.75" stroke={stroke} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
     )
 }
