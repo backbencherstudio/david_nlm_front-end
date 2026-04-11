@@ -124,6 +124,7 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
 }
 
 .dark {
@@ -176,7 +177,7 @@
   opacity: 1 !important;
 }
 
-input:checked ~ .checkmark {
+input:checked~.checkmark {
   background-color: var(--color-green-600);
 }
 
@@ -198,19 +199,15 @@ input:checked ~ .checkmark {
 }
 
 .gradient-bg {
-  background: var(
-    --Purple-shade,
-    linear-gradient(90deg, #795ff4 0%, #8f6cfd 50.3%, #8e5ef3 100%)
-  );
+  background: var(--Purple-shade,
+      linear-gradient(90deg, #795ff4 0%, #8f6cfd 50.3%, #8e5ef3 100%));
 }
 
 .hero_bg_light {
   background:
-    linear-gradient(
-      0deg,
+    linear-gradient(0deg,
       rgba(255, 255, 255, 0.2) 0%,
-      rgba(255, 255, 255, 0.2) 100%
-    ),
+      rgba(255, 255, 255, 0.2) 100%),
     url(/heroBg.png) lightgray 50% / cover no-repeat;
 }
 
@@ -222,11 +219,9 @@ input:checked ~ .checkmark {
 
 .hero_wrapper {
   background:
-    linear-gradient(
-      0deg,
+    linear-gradient(0deg,
       rgba(255, 255, 255, 0.2) 0%,
-      rgba(255, 255, 255, 0.2) 100%
-    ),
+      rgba(255, 255, 255, 0.2) 100%),
     url(/heroBg.png) lightgray 50% / cover no-repeat;
 }
 
@@ -258,4 +253,73 @@ input:checked ~ .checkmark {
   border-radius: 37.444px 0 0 0;
   background: #000;
   box-shadow: 0 0 37.444px 0 rgba(0, 0, 0, 0.8);
+}
+
+.search-input-root {
+  /* Surface */
+  --si-bg: #ffffff;
+  --si-border: rgba(0, 0, 0, 0.12);
+  --si-ring: #2563eb;
+  --si-ring-spread: rgba(37, 99, 235, 0.12);
+
+  /* Text */
+  --si-text: #111827;
+  --si-placeholder: #9ca3af;
+  --si-icon: #6b7280;
+
+  /* States */
+  --si-hover-bg: #f9fafb;
+  --si-active-bg: #eff6ff;
+  --si-clear-hover: #f3f4f6;
+  --si-error: #dc2626;
+
+  /* Highlight */
+  --si-highlight-bg: #dbeafe;
+  --si-highlight-text: #1d4ed8;
+}
+
+@media (prefers-color-scheme: dark) {
+
+  :root,
+  .search-input-root {
+    --si-bg: #fff;
+    --si-border: #E9E9EA;
+    --si-ring: #3b82f6;
+    --si-ring-spread: rgba(59, 130, 246, 0.15);
+
+    --si-text: var(--descriptionColor);
+    --si-placeholder: #71717a;
+    --si-icon: #a1a1aa;
+
+    --si-hover-bg: #27272a;
+    --si-active-bg: #1e3a5f;
+    --si-clear-hover: #3f3f46;
+    --si-error: #f87171;
+
+    --si-highlight-bg: #1e3a5f;
+    --si-highlight-text: #93c5fd;
+  }
+}
+
+/* Custom theme example: amber */
+.search-input-root--amber {
+  --si-ring: #d97706;
+  --si-ring-spread: rgba(217, 119, 6, 0.12);
+  --si-active-bg: #fffbeb;
+  --si-highlight-bg: #fef3c7;
+  --si-highlight-text: #92400e;
+}
+
+/* Scrollbar in dropdown */
+.search-input-root [role="listbox"]::-webkit-scrollbar {
+  width: 4px;
+}
+
+.search-input-root [role="listbox"]::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.search-input-root [role="listbox"]::-webkit-scrollbar-thumb {
+  background: var(--si-border);
+  border-radius: 2px;
 }

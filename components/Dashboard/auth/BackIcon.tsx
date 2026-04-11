@@ -17,16 +17,16 @@ const BackIcon = () => {
         <path
           d="M3 8.99976L15 8.99976"
           stroke="#070707"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <path
           d="M6.74997 12.75C6.74997 12.75 3.00001 9.98817 3 8.99997C2.99999 8.01177 6.75 5.25 6.75 5.25"
           stroke="#070707"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </svg>
     </div>

@@ -1,9 +1,16 @@
+'use client'
+
 import { Notebook } from "lucide-react";
 import StatCards from "./StateCards";
 import DashboardUserTable from "./DashboardUserTable";
+import { LocalSearchExample } from "./search/SearchExample";
+import { SearchInput } from "./search/GenericSearch";
+import { SearchResult } from "@/types";
+
+
 
 function DashboardPage() {
-    const statCards = [
+  const statCards = [
     {
       title: "Pre Application",
       value: 195,
@@ -24,7 +31,7 @@ function DashboardPage() {
       value: 635,
       percentage: "72.6%",
     },
-   
+
   ];
   return (
     <div className="flex flex-col justify-between h-full">
