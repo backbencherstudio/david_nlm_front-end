@@ -1,8 +1,12 @@
+"use client";
+
 import React from "react";
+import { useRouter } from "next/navigation";
 
 const BackIcon = () => {
+  const router = useRouter();
   return (
-    <div className="h-10 w-10 p-2.5 rounded-[0.625rem] bg-grayBg cursor-pointer">
+    <div className="h-10 w-10 p-2.5 rounded-[0.625rem] bg-grayBg cursor-pointer" onClick={() => router.back()}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="18"
