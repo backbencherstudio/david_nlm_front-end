@@ -22,7 +22,7 @@ const ForgetPassForm = () => {
         />
       </div>
 
-      <GenericButton variant="primary" size="md" fullWidth rounded="2xl" onClick={() => console.log("Reset link sent")}>Send OTP</GenericButton>
+      <GenericButton variant="primary" size="md" fullWidth rounded="2xl" height="lg" onClick={() => console.log("Reset link sent")}>Send OTP</GenericButton>
 
 
     </div>

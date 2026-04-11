@@ -9,6 +9,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   variant?: Variant;
   size?: Size;
   rounded?: Rounded;
+  height?: string;
   fullWidth?: boolean;
   loading?: boolean;
   icon?: React.ReactNode;
@@ -42,6 +43,14 @@ const roundedStyles: Record<Rounded, string> = {
   lg: "rounded-lg",
   xl: "rounded-xl",
   "2xl": "rounded-2xl",
+};
+
+const heightStyles: Record<Size, string> = {
+  xsm: "h-8",
+  sm: "h-9",
+  md: "h-10",
+  xl: "h-11",
+  lg: "h-12",
 };
 
 function cn(...classes: (string | false | null | undefined)[]): string {
@@ -90,6 +99,7 @@ export const GenericButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
       variant = "primary",
       size = "md",
       rounded = "lg",
+      height,
       fullWidth = false,
       loading = false,
       icon,
@@ -97,6 +107,7 @@ export const GenericButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
       disabled,
       children,
       className,
+
       onClick,
       ...rest
     },
@@ -116,11 +127,12 @@ export const GenericButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
           // Base
           "inline-flex items-center justify-center",
           "transition-colors duration-150 ease-in-out",
-          "outline-none select-none whitespace-nowrap cursor-pointer h-12",
+          "outline-none select-none whitespace-nowrap cursor-pointer",
           // Variant, Size, Radius
           variantStyles[variant],
           sizeStyles[size],
           roundedStyles[rounded],
+          height && heightStyles[height],
           // Width
           fullWidth && "w-full",
           // Caller overrides (use sparingly)

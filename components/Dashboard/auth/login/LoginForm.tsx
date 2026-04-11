@@ -52,7 +52,7 @@ const LoginForm = () => {
         </div>
       </div>
 
-      <GenericButton variant="primary" size="md" rounded="2xl" fullWidth onClick={() => console.log("Logged in")}>
+      <GenericButton variant="primary" size="md" rounded="2xl" fullWidth onClick={() => console.log("Logged in")} height="lg">
         Log in
       </GenericButton>
 

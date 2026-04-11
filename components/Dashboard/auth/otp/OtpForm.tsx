@@ -125,6 +125,7 @@ const OtpForm = ({
         size="md"
         fullWidth
         rounded="2xl"
+        height="lg"
         onClick={handleSubmit}
         disabled={!isComplete || status === "loading" || status === "success"}
         aria-disabled={!isComplete || status === "loading"}

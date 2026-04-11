@@ -73,6 +73,7 @@ const ChangePassForm = () => {
           rounded="2xl"
           onClick={() => console.log("Saved")}
           fullWidth
+          height="lg"
         >
           Set Password
         </GenericButton>
@@ -83,6 +84,7 @@ const ChangePassForm = () => {
           rounded="2xl"
           onClick={() => console.log("Saved")}
           fullWidth
+          height="lg"
         >
           Back to sign in
         </GenericButton>

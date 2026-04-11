@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import CircleTickIcon from "@/icons/CircleTickIcon";
 import GenericButton from "@/components/Dashboard/auth/GenericButton";
 
 const ConfirmationPassForm = () => {
@@ -13,7 +12,7 @@ const ConfirmationPassForm = () => {
     return (
         <div className="space-y-8">
 
-            <GenericButton variant="primary" size="md" rounded="2xl" fullWidth onClick={() => console.log("Logged in")}>
+            <GenericButton variant="primary" size="md" rounded="2xl" fullWidth height="lg" onClick={() => console.log("Logged in")}>
                 Proceed to login
             </GenericButton>
         </div>
