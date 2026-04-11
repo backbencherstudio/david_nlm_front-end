@@ -2,7 +2,7 @@ import React from "react";
 
 type Variant = "primary" | "outline";
 type Size = "xsm" | "sm" | "md" | "xl" | "lg";
-type Rounded = "full" | "lg" | "2xl";
+type Rounded = "full" | "lg" | "xl" | "2xl";
 type IconPosition = "left" | "right";
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -30,7 +30,7 @@ const variantStyles: Record<Variant, string> = {
 };
 
 const sizeStyles: Record<Size, string> = {
-  xsm: "px-4 py-[0.313rem] text-xs gap-1",
+  xsm: "px-4 py-[0.313rem] text-sm gap-1",
   sm: "px-3 py-1.5 text-sm gap-1.5",
   md: "px-3 py-2 text-sm gap-2",
   xl: "px-2 py-[0.625rem] text-lg gap-2.5",
@@ -40,6 +40,7 @@ const sizeStyles: Record<Size, string> = {
 const roundedStyles: Record<Rounded, string> = {
   full: "rounded-full",
   lg: "rounded-lg",
+  xl: "rounded-xl",
   "2xl": "rounded-2xl",
 };
 

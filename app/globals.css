@@ -25,6 +25,7 @@
   --color-ratingColor: #ffc52e;
   --color-bgColor: var(--bgColor);
   --color-descriptionColor: var(--descriptionColor);
+  --color-grayColor2: var(--grayColor2);
   --color-purpleColor: var(--purpleColor);
   --color-purpleOne: var(--purpleOne);
   --color-purpleTwo: var(--purpleTwo);
@@ -85,6 +86,7 @@
   --ratingColor: #ffc52e;
   --headerColor: #040815;
   --grayColor1: #777980;
+  --grayColor2: #1D1F2C;
   --bgColor: rgba(243, 243, 244, 0.5);
   --descriptionColor: #4a4c56;
   --purpleColor: #ad46ff;

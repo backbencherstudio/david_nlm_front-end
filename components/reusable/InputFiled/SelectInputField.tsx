@@ -18,6 +18,7 @@ interface SelecteInputFieldProps {
   disabled?: boolean;
 }
 
+
 export default function SelecteInputField({
   value,
   onValueChange,
@@ -31,7 +32,7 @@ export default function SelecteInputField({
     <Select value={value} onValueChange={onValueChange}>
       <SelectTrigger
         id={id}
-        className={`${className} h-12! md:h-13! bg-bgColor w-full`}
+        className={`${className} w-full text-blackColor font-xs`}
         disabled={disabled}
       >
         <SelectValue placeholder={placeholder} />
@@ -39,7 +40,7 @@ export default function SelecteInputField({
       <SelectContent>
         {options.map((opt) => (
           <SelectItem key={opt.value} value={opt.value}>
-            {opt.label}
+           {opt.label}
           </SelectItem>
         ))}
       </SelectContent>

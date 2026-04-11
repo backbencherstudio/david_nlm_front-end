@@ -7,6 +7,9 @@ import VendorsIcon from "@/icons/VendorsIcon";
 import EventPlannersIcon from "@/icons/EventPlannersIcon";
 import MenWithDollarIcon from "@/icons/MenWithDollarIcon";
 import DollarIcon from "@/icons/DollarIcon";
+import ReveneuOverview from "./overview/ReveneuOverview";
+import TodaysBooking from "./todays-booking/TodaysBooking";
+import NewSubscription from "./new-subscription/NewSubscription";
 
 
 
@@ -61,6 +64,15 @@ function DashboardPage() {
         <StatCards statCards={statCards} />
       </div>
 
+      <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] mt-10 gap-5">
+        <div className="flex-1">
+          <ReveneuOverview />
+        </div>
+        <div className="flex flex-col space-y-5">
+          <TodaysBooking />
+          <NewSubscription />
+        </div>
+      </div>
       <div className="mt-10">
         <DashboardUserTable />
       </div>

@@ -1,0 +1,13 @@
+import React from 'react'
+
+const FailedIcon = () => {
+  return (
+   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+  <path d="M10.0003 18.3334C14.6027 18.3334 18.3337 14.6025 18.3337 10.0001C18.3337 5.39771 14.6027 1.66675 10.0003 1.66675C5.39795 1.66675 1.66699 5.39771 1.66699 10.0001C1.66699 14.6025 5.39795 18.3334 10.0003 18.3334Z" stroke="#1D1F2C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M10 6.66675V10.4167" stroke="#1D1F2C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M10 13.3235V13.3318" stroke="#1D1F2C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+  )
+}
+
+export default FailedIcon
