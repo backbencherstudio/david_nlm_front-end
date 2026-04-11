@@ -15,6 +15,10 @@ import {
 } from "../ui/dropdown-menu";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import Search from "./Search";
+import NotificationIcon from "@/icons/NotificationIcon";
+import BlueDot from "@/icons/BlueDot";
+import { SearchResult } from "@/types";
+import { GenericSearch } from "../Dashboard/search/GenericSearch";
 
 interface HeaderProps {
   onNotificationClick?: () => void;
@@ -22,6 +26,25 @@ interface HeaderProps {
   sidebarOpen: boolean;
   onMenuClick: () => void;
 }
+
+
+const COUNTRIES: SearchResult[] = [
+  { id: "us", label: "United States", description: "North America" },
+  { id: "uk", label: "United Kingdom", description: "Europe" },
+  { id: "de", label: "Germany", description: "Europe" },
+  { id: "jp", label: "Japan", description: "Asia" },
+  { id: "au", label: "Australia", description: "Oceania" },
+];
+
+function searchLocally(query: string): SearchResult[] {
+  const q = query.toLowerCase();
+  return COUNTRIES.filter(
+    (c) =>
+      c.label.toLowerCase().includes(q) ||
+      (c.description ?? "").toLowerCase().includes(q)
+  );
+}
+
 
 const Header: React.FC<HeaderProps> = ({
   onMenuClick,
@@ -32,8 +55,8 @@ const Header: React.FC<HeaderProps> = ({
   const router = useRouter();
 
   return (
-    <nav className=" text-blackColor border-b bg-bgColor border-borderColor  py-3">
-      <div className=" px-3  md:px-6   relative flex justify-between w-full mb-1 z-50">
+    <nav className="  bg-grayBg p-5">
+      <div className="relative flex justify-between w-full mb-1 z-50">
         {/* Mobile menu button */}
         <div>
           <div className=" xl:hidden h-full flex items-center">
@@ -51,66 +74,74 @@ const Header: React.FC<HeaderProps> = ({
         </div>
 
         {/* Notification and Profile Group */}
-        <div className="flex items-center gap-2 lg:gap-6 justify-end w-full">
-          <div className=" hidden md:block w-full ">
-            <Search />
+        <div className="flex items-center gap-2 lg:gap-6 justify-between w-full">
+          <div className=" lg:block">
+            <p className="text-descriptionColor leading-[160%] hidden xl:block">Good morning</p>
+            <h2 className="text-blackColor font-medium text-2xl">Welcome back</h2>
           </div>
+
           <div className="flex items-center gap-2 lg:gap-5 justify-between">
-            <Popover open={popoverOpen} onOpenChange={setPopoverOpen}>
-              <PopoverTrigger
-                className="cursor-pointer relative flex justify-center items-center "
-                onClick={() => setPopoverOpen(!popoverOpen)}
-              >
-                <span className="absolute -top-1.5 -right-1.5 flex justify-center items-center text-xs w-4 h-4 text-whiteColor rounded-full bg-redColor">
-                  2
-                </span>
 
-                <MdNotifications className="text-gray-700" size={24} />
-              </PopoverTrigger>
+            <div className="hidden md:block w-full">
+              <GenericSearch
+                onSearch={searchLocally}
+                onSelect={(c) => console.log(c.label)}
+                placeholder="Search"
+                debounceMs={0}
+                minChars={1}
+              />
+            </div>
 
-              <PopoverContent className="w-70 md:w-[267px] mt-4 p-0 max-h-[500px] flex flex-col">
-                {/* Header */}
-                <div className="flex justify-between items-center p-4 border-b sticky top-0 bg-white z-10">
-                  <h4 className="text-base font-bold md:text-lg text-headerColor">
-                    Notifications
-                  </h4>
 
-                  <button
-                    onClick={() => setPopoverOpen(false)}
-                    className="text-[#455468] bg-bgColor w-[35px] h-[35px] shadow-sm rounded-full cursor-pointer text-lg font-bold flex items-center justify-center"
-                  >
-                    <X className="" />
-                  </button>
-                </div>
+            <div className="flex items-center gap-3">
+              <Popover open={popoverOpen} onOpenChange={setPopoverOpen}>
+                <PopoverTrigger
+                  className="cursor-pointer relative flex justify-center items-center bg-white rounded-full p-[0.402rem] border-[0.5px] border-borderColor w-9 h-9"
+                  onClick={() => setPopoverOpen(!popoverOpen)}
+                >
+                  <div className="absolute top-1.5 right-1.5">
+                    <BlueDot />
+                  </div>
+                  <NotificationIcon />
+                </PopoverTrigger>
 
-                <div className="overflow-y-auto px-4 py-3 flex-1">
-                  <p className="text-center text-sm text-gray-500 py-6">
-                    No notifications available
-                  </p>
-                </div>
-              </PopoverContent>
-            </Popover>
+                <PopoverContent className="w-70 md:w-[267px] mt-4 p-0 max-h-[500px] flex flex-col mr-6">
+                  {/* Header */}
+                  <div className="flex justify-between items-center p-4 border-b sticky top-0 bg-white z-10">
+                    <h4 className="text-base font-bold md:text-lg text-headerColor">
+                      Notifications
+                    </h4>
 
-            <div className="  relative sm:ml-0">
+                    <button
+                      onClick={() => setPopoverOpen(false)}
+                      className="text-[#455468] bg-bgColor w-[35px] h-[35px] shadow-sm rounded-full cursor-pointer text-lg font-bold flex items-center justify-center"
+                    >
+                      <X className="" />
+                    </button>
+                  </div>
+
+                  <div className="overflow-y-auto px-4 py-3 flex-1">
+                    <p className="text-center text-sm text-gray-500 py-6">
+                      No notifications available
+                    </p>
+                  </div>
+                </PopoverContent>
+              </Popover>
+
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <div className="flex gap-3 h-full items-center">
-                    <div
-                      className="flex items-center  p-1  rounded-full cursor-pointer hover:opacity-90"
-                      style={{
-                        boxShadow: "2px 2px 7px 2px rgba(0, 0, 0, 0.1)",
-                      }}
-                    >
-                      <div className=" w-6 h-6 lg:w-8 lg:h-8 rounded-md overflow-hidden">
-                        <Image
-                          src={"/profile.png"}
-                          alt="Admin Avatar"
-                          width={40}
-                          height={40}
-                          className="rounded-md w-full h-full"
-                        />
-                      </div>
+
+                    <div className=" w-9 h-9  rounded-full overflow-hidden">
+                      <Image
+                        src={"/vendly_profile.jpg"}
+                        alt="Admin Avatar"
+                        width={36}
+                        height={36}
+                        className="rounded-full w-full h-full"
+                      />
                     </div>
+
 
                     <button className=" cursor-pointer">
                       <IoIosArrowDown size={16} className="text-blackColor" />
@@ -143,9 +174,15 @@ const Header: React.FC<HeaderProps> = ({
           </div>
         </div>
       </div>
-      <div className=" md:hidden px-4">
-        <Search />
-      </div>
+      {/* <div className=" md:hidden px-4">
+        <SearchInput
+          onSearch={searchLocally}
+          onSelect={(c) => console.log(c.label)}
+          placeholder="Search"
+          debounceMs={0}
+          minChars={1}
+        />
+      </div> */}
     </nav>
   );
 };

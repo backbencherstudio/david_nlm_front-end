@@ -1,13 +1,20 @@
 "use client";
 
+import VendorsIcon from "@/icons/VendorsIcon";
 import { Skeleton } from "../ui/skeleton";
+import GrowIcon from "@/icons/GrowIcon";
 
-;
+interface StatCardProps {
+  title: string;
+  value: number;
+  percentage: string;
+  icon: React.ReactNode;
+}
 
 export default function StatCards({
   statCards,
 }: {
-  statCards: { title: string; value: number; percentage: string }[];
+  statCards: StatCardProps[];
 }) {
   const isLoading = false;
 
@@ -15,37 +22,40 @@ export default function StatCards({
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
       {isLoading
         ? Array.from({ length: 8 }).map((_, idx) => (
-            <div
-              key={idx}
-              className="p-4 rounded-lg bg-white border border-gray-100 flex flex-col gap-4"
-            >
-              <Skeleton className="w-24 h-4" />
-              <Skeleton className="w-16 h-8" />
-              <Skeleton className="w-12 h-4" />
-            </div>
-          ))
+          <div
+            key={idx}
+            className="p-4 rounded-lg bg-white border border-gray-100 flex flex-col gap-4"
+          >
+            <Skeleton className="w-24 h-4" />
+            <Skeleton className="w-16 h-8" />
+            <Skeleton className="w-12 h-4" />
+          </div>
+        ))
         : statCards.map((card, idx) => (
-            <div
-              key={idx}
-              className="p-4 group rounded-lg bg-bgColor hover:bg-blackColor hover:text-whiteColor  border border-gray2Color hover:shadow-lg transition-all duration-200 cursor-pointer relative"
-            >
-              {/* Title */}
-              <p className="text-sm text-secondaryColor group-hover:text-whiteColor transition-all duration-200 font-medium mb-5">
+          <div
+            key={idx}
+            className="bg-grayBg rounded-xl p-4"
+          >
+            {/* Title */}
+            <div className="flex items-center gap-2">
+              {card.icon}
+              <p className="text-descriptionColor font-medium leading-[160%]">
                 {card.title}
               </p>
-
-              {/* Large Number with Percentage */}
-              <div className="flex items-end justify-between">
-                <div className="text-[20px] font-semibold group-hover:text-whiteColor transition-all duration-200 text-blackColor">
-                  {card.value}
-                </div>
-                <span className="text-xs font-medium group-hover:text-[#E5B400] transition-all duration-200  px-2 py-1 rounded">
-                  ({card.percentage})
-                </span>
-              </div>
-
             </div>
-          ))}
+
+
+            <div >
+              <div className="flex items-center justify-between">
+                <div className="text-blackColor text-xl font-semibold leading-[130%]">195</div>
+                <div className="flex px-1.5 py-1   items-center gap-1 border-[0.5px] border-greenBorder bg-greenBg rounded-4xl"> <GrowIcon />
+                  <span className="text-greenText ">0.1%</span></div>
+              </div>
+              <p className="text-grayColor1 leading-[160%] ">From Last Month</p>
+            </div>
+
+          </div>
+        ))}
     </div>
   );
 }

@@ -1,22 +1,29 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-import "react-datepicker/dist/react-datepicker.css";
-import "swiper/css";
-import "swiper/css/navigation";
-import AppBackground from "./_components/AppBackground";
-import ThemeProvider from "@/context/theme-context";
+import { ThemeProvider } from "@/providers/ThemeProvider";
+import { ThemeScript } from "@/providers/ThemeScript";
+import "../globals.css";
+
 export default function FrontEndLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <>
-      <Navbar />
-      {children}
-      <div className="bg-[#FAFAFA] dark:bg-background">
-        <Footer />
-      </div>
-    </>
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <ThemeScript />
+      </head>
+      <body>
+        <ThemeProvider>
+          <Navbar />
+          {children}
+          <div className="bg-[#FAFAFA] dark:bg-background">
+            <Footer />
+          </div>
+        </ThemeProvider>
+      </body>
+    </html>
+       
   );
 }
