@@ -1,7 +1,7 @@
 import React from "react";
 
 type Variant = "primary" | "outline";
-type Size = "xsm" | "sm" | "md" | "xl" | "lg";
+type Size = "xsm" | "sm" | "md" | "xl" | "lg" | "xll";
 type Rounded = "full" | "lg" | "xl" | "2xl";
 type IconPosition = "left" | "right";
 
@@ -33,6 +33,7 @@ const variantStyles: Record<Variant, string> = {
 const sizeStyles: Record<Size, string> = {
   xsm: "px-4 py-[0.313rem] text-sm gap-1",
   sm: "px-3 py-1.5 text-sm gap-1.5",
+  xll: "px-6 py-3 text-xs gap-2.5",
   md: "px-3 py-2 text-sm gap-2",
   xl: "px-2 py-[0.625rem] text-lg gap-2.5",
   lg: "px-6 py-3 text-lg gap-2.5",
@@ -51,6 +52,7 @@ const heightStyles: Record<Size, string> = {
   md: "h-10",
   xl: "h-11",
   lg: "h-12",
+  xll: "h-12",
 };
 
 function cn(...classes: (string | false | null | undefined)[]): string {
@@ -64,6 +66,7 @@ const Spinner: React.FC<{ size: Size }> = ({ size }) => {
     md: "w-4 h-4",
     xl: "w-4.5 h-4.5",
     lg: "w-5 h-5",
+    xll: "w-5 h-5",
   };
 
   return (

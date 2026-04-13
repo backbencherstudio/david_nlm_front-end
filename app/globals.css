@@ -41,6 +41,8 @@
   --color-greenBorder: var(--greenBorder);
   --color-greenText: var(--greenText);
   --color-tableHeaderBg: var(--tableHeaderBg);
+  --color-pendingBg: var(--pendingBg);
+  --color-pendingText: var(--pendingText);
   /* ======== */
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -105,6 +107,8 @@
   --greenBorder: #A7EADE;
   --greenText: #116557;
   --tableHeaderBg: #ECEEEF;
+  --pendingBg: #FEF4CF;
+  --pendingText: #7D6407;
 
   /* ========== */
   --radius: 0.625rem;
