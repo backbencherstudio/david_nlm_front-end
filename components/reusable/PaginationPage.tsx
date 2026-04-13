@@ -6,6 +6,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
+import GenericSelect from "../Dashboard/common/GenericSelectInput";
+import { ChevronLeft } from "@/icons/ChevronLeft";
+import ChevronRight from "@/icons/ChevronRight";
 
 interface PaginationPageProps {
   totalPages: number;
@@ -73,73 +76,80 @@ function PaginationPage({
   const originalArray = [1, 5, 10, 25, 50, 100];
   const uniqueArray = [...new Set(originalArray)];
   return (
-    <div className="mt-10 mb-0 lg:mb-20 ">
-      <div className=" flex justify-end ">
-        {/* Pagination */}
-        {totalPages > 0 && (
-          <div className="flex items-center w-full justify-between mt-6 gap-2">
-            <div className="flex items-center gap-1">
-              <button
-                onClick={() => onPageChange(currentPage - 1)}
-                disabled={currentPage === 1}
-                className="px-2 cursor-pointer py-1.5 flex justify-center  items-center border border-border text-blackColor rounded disabled:opacity-40 disabled:text-borderColor disabled:border-borderColor"
-              >
-                <MdArrowBackIosNew size={15} />
-              </button>
-              {getPagination().map((page, i) => (
-                <button
-                  key={i}
-                  onClick={() => typeof page === "number" && onPageChange(page)}
-                  disabled={page === "..."}
-                  className={`px-2 py-[3px] rounded cursor-pointer h-full text-sm ${
-                    page === currentPage
-                      ? "text-blackColor bg-grayColor1 border border-border h-full  font-medium"
-                      : "text-blackColor "
-                  }`}
-                >
-                  {page}
-                </button>
-              ))}
-              <button
-                onClick={() => onPageChange(currentPage + 1)}
-                disabled={currentPage === totalPages}
-                className="cursor-pointer px-2 py-1.5 flex justify-center  items-center border border-border text-blackColor rounded disabled:opacity-40 disabled:text-borderColor disabled:border-borderColor"
-              >
-                <MdArrowForwardIos size={15} />
-              </button>
-            </div>
 
-            <div className="flex items-center gap-4">
-              <div className="text-sm text-[#4a4c56]">
+    <div className="bg-grayBg p-2 rounded-xl flex justify-end items-center ">
+      {/* Pagination */}
+      {totalPages > 0 && (
+        <div className="flex flex-col sm:flex-row items-center w-full justify-between gap-2">
+
+
+          <div className="flex  items-center gap-4">
+            {/* <div className="text-sm text-[#4a4c56]">
                 Showing {startIndex} to {endIndex} of {effectiveTotalItems}{" "}
                 entries
-              </div>
+              </div> */}
 
-              <div className="flex items-center gap-2">
-                <label className="text-sm text-[#4a4c56]">Show</label>
-                <Select
-                  value={String(itemsPerPage)}
-                  onValueChange={(value) =>
-                    handleItemsPerPageChange(Number(value))
-                  }
-                >
-                  <SelectTrigger className="w-[62px] px-1.5!">
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {uniqueArray.map((opt) => (
-                      <SelectItem key={opt} value={String(opt)}>
-                        {opt}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+            <div className="flex  items-center gap-2">
+              
+              <label className="text-sm text-[#777980]">Show</label>
+              <Select
+                value={String(itemsPerPage)}
+                onValueChange={(value) =>
+                  handleItemsPerPageChange(Number(value))
+                }
+              >
+                <SelectTrigger className="w-[62px] px-1.5!">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  {uniqueArray.map((opt) => (
+                    <SelectItem key={opt} value={String(opt)}>
+                      {opt}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+
+              <div className="text-sm text-blackColor whitespace-nowrap">
+                of {effectiveTotalItems}{" "}
+                
               </div>
             </div>
           </div>
-        )}
-      </div>
+
+          <div className="flex items-center gap-1">
+            <button
+              onClick={() => onPageChange(currentPage - 1)}
+              disabled={currentPage === 1}
+              className="w-6 h-6 flex justify-center items-center bg-white px-[0.563rem] py-1.5 rounded-sm cursor-pointer"
+            >
+              <ChevronLeft  />
+            </button>
+            {getPagination().map((page, i) => (
+              <button
+                key={i}
+                onClick={() => typeof page === "number" && onPageChange(page)}
+                disabled={page === "..."}
+                className={`px-2 py-[3px] rounded cursor-pointer h-full text-sm ${page === currentPage
+                  ? "w-6 h-6 flex justify-center items-center gradient-bg px-[0.563rem] py-1.5 rounded-sm cursor-pointer text-white"
+                  : "text-[#777980] "
+                  }`}
+              >
+                {page}
+              </button>
+            ))}
+            <button
+              onClick={() => onPageChange(currentPage + 1)}
+              disabled={currentPage === totalPages}
+              className="w-6 h-6 flex justify-center items-center gradient-bg px-[0.563rem] py-1.5 rounded-sm cursor-pointer"
+            >
+              <ChevronRight/>
+            </button>
+          </div>
+        </div>
+      )}
     </div>
+
   );
 }
 

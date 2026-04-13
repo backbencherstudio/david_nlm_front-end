@@ -1,13 +1,13 @@
 import DataFilterBar from '@/components/Dashboard/common/DataFilterBar'
-import DynamicTable from '@/components/reusable/DynamicTable'
+import VendorsPageContent from '@/components/Dashboard/vendors/VendorsPageContent'
 import React from 'react'
 
 
 const VendorsPage = () => {
     return (
-        <div>
+        <div >
             <DataFilterBar allCategories />
-          
+           <VendorsPageContent/>
         </div>
     )
 }

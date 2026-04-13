@@ -4,6 +4,7 @@ import Image from "next/image";
 import React from "react";
 import Loader from "./Loader";
 import PaginationPage from "./PaginationPage";
+import ThreeDotIcon from "@/icons/ThreeDotIcon";
 
 interface ColumnConfig {
   label: React.ReactNode;
@@ -55,63 +56,72 @@ export default function DynamicTable({
           <table
             className={`min-w-[1000px] w-full text-left bg-whiteColor  ${border ? "p-2" : ""}`}
           >
-            <thead className=" sticky top-0 text-white rounded-2xl! overflow-hidden  p-2">
+            <thead className="sticky top-0 text-blackColor rounded-md! overflow-hidden  p-2">
               <tr className="">
-                {columns.map((col, index) => (
-                  <th
-                    key={index}
-                    style={{ width: col.width || "auto" }}
-                    className={`${index == 0 ? "rounded-l-lg" : index === columns.length - 1 ? "rounded-r-lg" : ""} px-4! bg-blackColor   py-5! text-sm font-medium border-b  `}
-                  >
-                    {col.label}
-                  </th>
-                ))}
+                {columns.map((col, index) => {
+
+                  const isFirst = index === 0;
+                  const isLast = index === columns.length - 1;
+
+                  return (
+                    <th
+                      key={col.id}
+                      style={{ width: col.width || "auto" }}
+                      className={`${isFirst ? "rounded-tl-md"  : ""} px-4! bg-tableHeaderBg   py-5! text-sm font-medium border-b  `}
+                    >
+                      {col.label}
+                    </th>
+                  )
+                })}
                 {(onView || onDelete) && (
                   <th>
-                    <div className="px-4 border border-red-600  rounded-2xl py-3 text-sm font-medium text-[#4a4c56] border-b  bg-neutral-50">
+                    <div className="px-4! bg-tableHeaderBg   py-5! text-sm font-medium border-b rounded-tr-md ">
                       Action
                     </div>
                   </th>
                 )}
               </tr>
             </thead>
-            <tbody>
+            <tbody className="bg-grayBg">
               {loading ? (
                 <tr>
                   <td
                     colSpan={columns.length + (onView || onDelete ? 1 : 0)}
-                    className="px-4 py-10 text-center text-[#4a4c56] text-sm"
+                    className="px-4 py-10 text-center text-[#4a4c56] text-sm "
                   >
                     <Loader />
                   </td>
                 </tr>
               ) : data?.length > 0 ? (
                 data.map((row, i) => (
-                  <tr key={i} className="border-t border-gray-100">
-                    {columns.map((col, idx) => (
-                      <td
-                        key={idx}
-                        style={{ width: col.width || "auto" }}
-                        className="px-4 py-3 text-sm text-[#4a4c56]"
-                      >
-                        {col.formatter
-                          ? col.formatter(
-                              row[col.accessor],
+                  <tr key={i} className="border-t-[0.5px] border-borderColor h-[4.313rem] ">
+                    {columns.map((col, idx) => {
+
+                      const value = row[col.accessor];
+                      const index = (currentPage - 1) * itemsPerPage + i;
+                      return (
+                        <td
+                          key={col.id}
+                          style={{ width: col.width || "auto" }}
+                          className="px-4 py-3 text-sm font-medium text-blackColor leading-[160%]"
+                        >
+                          {col.formatter
+                            ? col.formatter(
+                              value,
                               row,
-                              (currentPage - 1) * itemsPerPage + i,
+                              index,
                             )
-                          : row[col.accessor]}
-                      </td>
-                    ))}
+                            : value}
+
+                        </td>
+                      )
+                    })}
+
+
                     {(onView || onDelete) && (
-                      <td className="px-4 py-3 flex gap-4 items-center">
+                      <td className="px-4 py-3 cursor-pointer">
                         {onView && (
-                          <span
-                            className="text-xs underline text-[#4a4c56]  cursor-pointer"
-                            onClick={() => onView(row)}
-                          >
-                            View details
-                          </span>
+                        <ThreeDotIcon />
                         )}
                         {onDelete && (
                           <Image
@@ -156,7 +166,7 @@ export default function DynamicTable({
           </table>
         </div>
       </div>
-      <div>
+      <div className="mt-3 " >
         <PaginationPage
           totalPages={totalpage}
           dataLength={data?.length || 0}
