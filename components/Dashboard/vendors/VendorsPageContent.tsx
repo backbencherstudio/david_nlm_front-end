@@ -6,14 +6,28 @@ import { useState } from "react";
 import DynamicTable from "@/components/reusable/DynamicTable";
 import { VENDOR_COLUMNS } from "./tableConfig";
 import { searchLocally } from "@/helper/localSearct";
+import { usePagination } from "@/hooks";
 
 const VendorsPageContent = () => {
-    const [filteredData, setFilteredData] = useState(vendors);
+  const [filteredData, setFilteredData] = useState(vendors);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
 
-    const [filters, setFilters] = useState({
+  const [filters, setFilters] = useState({
     search: "",
     category: "all",
     subscription: "all",
+  });
+
+  const {
+    paginatedData,
+    currentPage,
+    totalPages,
+    totalItems,
+    goToPage,
+  } = usePagination({
+    data: filteredData,
+    itemsPerPage: itemsPerPage,
+    resetDeps: [filters], // Reset to page 1 when filters change
   });
 
   const applyFilters = (newFilters: any) => {
@@ -37,32 +51,34 @@ const VendorsPageContent = () => {
     setFilteredData(data);
   };
 
-    return (
-        <>
-            <DataFilterBar  
-                onSearch={(q) => applyFilters({ search: q })}
-                onCategoryChange={(val) => applyFilters({ category: val })} 
-                categoryValue={filters.category}
-                allCategories
-                // allStatus
-                // statusValue={filters.subscription}
-                // onStatusChange={(val) => applyFilters({ subscription: val })}
-            />
+  return (
+    <>
+      <DataFilterBar
+        onSearch={(q) => applyFilters({ search: q })}
+        onCategoryChange={(val) => applyFilters({ category: val })}
+        categoryValue={filters.category}
+        allCategories
+      // allStatus
+      // statusValue={filters.subscription}
+      // onStatusChange={(val) => applyFilters({ subscription: val })}
+      />
 
-            <div className="mt-5">
-                <DynamicTable
-                    columns={VENDOR_COLUMNS}
-                    data={filteredData}
-                    currentPage={1}
-                    itemsPerPage={10}
-                    onPageChange={() => { }}
-                    totalpage={10}
-                    border={false}
-                    onView={() => { }}
-                />
-            </div>
-        </>
-    );
+      <div className="mt-5">
+        <DynamicTable
+          columns={VENDOR_COLUMNS}
+          data={paginatedData}
+          currentPage={currentPage}
+          itemsPerPage={itemsPerPage}
+          onPageChange={goToPage}
+          totalpage={totalPages}
+          totalItems={totalItems}
+          setItemsPerPage={setItemsPerPage}
+          border={false}
+          onView={() => { }}
+        />
+      </div>
+    </>
+  );
 };
 
 export default VendorsPageContent;

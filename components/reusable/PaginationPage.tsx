@@ -121,7 +121,7 @@ function PaginationPage({
             <button
               onClick={() => onPageChange(currentPage - 1)}
               disabled={currentPage === 1}
-              className="w-6 h-6 flex justify-center items-center bg-white px-[0.563rem] py-1.5 rounded-sm cursor-pointer"
+              className="w-6 h-6 flex justify-center items-center bg-white hover:bg-purpleOne hover:text-white px-[0.563rem] py-1.5 rounded-sm cursor-pointer"
             >
               <ChevronLeft  />
             </button>
@@ -141,9 +141,9 @@ function PaginationPage({
             <button
               onClick={() => onPageChange(currentPage + 1)}
               disabled={currentPage === totalPages}
-              className="w-6 h-6 flex justify-center items-center gradient-bg px-[0.563rem] py-1.5 rounded-sm cursor-pointer"
+              className="w-6 h-6 flex justify-center items-center hover:bg-purpleOne hover:text-white px-[0.563rem] py-1.5 rounded-sm cursor-pointer"
             >
-              <ChevronRight/>
+              <ChevronRight />
             </button>
           </div>
         </div>
