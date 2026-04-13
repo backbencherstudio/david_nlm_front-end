@@ -1,14 +1,21 @@
-import { SearchResult } from '@/types'
-const COUNTRIES: SearchResult[] = [
-    { id: "us", label: "United States", description: "North America" },
-    { id: "uk", label: "United Kingdom", description: "Europe" },
-    { id: "de", label: "Germany", description: "Europe" },
-    { id: "jp", label: "Japan", description: "Asia" },
-    { id: "au", label: "Australia", description: "Oceania" },
-];
+import { vendors } from "@/data/vendors";
 
-export function searchLocally(query: string): SearchResult[] {
-    const q = query.toLowerCase();
 
-    return COUNTRIES.filter((c) => c.label.toLowerCase().includes(q) || (c.description ?? "").toLowerCase().includes(q))
+export function searchLocally(query: string) {
+  const q = query.toLowerCase();
+        const result = vendors.filter((v) => {
+            return [
+                v.vendorName?.name,
+                v.vendorName?.joinedDate,
+                v.category,
+                v.subcategory,
+                v.operatedService,
+                v.location,
+                v.subscription,
+                String(v.totalBookings),
+            ]
+                .filter(Boolean)
+                .some((field) => field.toLowerCase().includes(q));
+        });
+        return result;
 }

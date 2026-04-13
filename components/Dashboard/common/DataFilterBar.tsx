@@ -6,23 +6,45 @@ import GenericSelect from './GenericSelectInput';
 import FunnelIcon from '@/icons/FunnelIcon';
 
 interface DataFilterBarProps {
+    onSearch: (query: string) => void;
     allCategories?: boolean;
     allStatus?: boolean;
     allPlans?: boolean;
     allPayments?: boolean;
 }
 
-const DataFilterBar = ({ allCategories, allStatus, allPlans, allPayments }: DataFilterBarProps) => {
+const DataFilterBar = ({ onSearch, allCategories, allStatus, allPlans, allPayments }: DataFilterBarProps) => {
     return (
         <div className='flex flex-col sm:flex-row justify-between items-center bg-grayBg p-3 rounded-xl gap-2'>
 
             {/* Search */}
             <GenericSearch
                 onSearch={searchLocally}
+                onChange={onSearch}
+                onClear={() => onSearch("")}
                 debounceMs={10}
                 placeholder='Search Vendor'
                 minChars={1}
-                onSelect={(country) => console.log(country.label)}
+                onSelect={(country) => console.log(country.vendorName.name)}
+                renderResult={(item, query) => (
+                    <div className="flex items-center gap-3 px-3 py-2.5 w-full">
+                        {item.vendorName?.image && (
+                            <img 
+                                src={item.vendorName.image} 
+                                alt={item.vendorName.name}
+                                className="w-8 h-8 rounded-full object-cover"
+                            />
+                        )}
+                        <div className="min-w-0 flex-1">
+                            <div className="text-[14px] text-gray-900 truncate">
+                                {item.vendorName?.name}
+                            </div>
+                            <div className="text-[12px] text-gray-500 truncate">
+                                {item.category} • {item.location}
+                            </div>
+                        </div>
+                    </div>
+                )}
                 className='w-full sm:w-[12rem] md:w-[31.25rem]'
                 size='sm'
             />

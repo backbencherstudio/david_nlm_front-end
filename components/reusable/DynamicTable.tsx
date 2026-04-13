@@ -65,9 +65,9 @@ export default function DynamicTable({
 
                   return (
                     <th
-                      key={col.id}
+                      key={col.accessor}
                       style={{ width: col.width || "auto" }}
-                      className={`${isFirst ? "rounded-tl-md"  : ""} px-4! bg-tableHeaderBg   py-5! text-sm font-medium border-b  `}
+                      className={`${isFirst ? "rounded-tl-md" : ""} px-4! bg-tableHeaderBg   py-5! text-sm font-medium border-b  `}
                     >
                       {col.label}
                     </th>
@@ -101,7 +101,7 @@ export default function DynamicTable({
                       const index = (currentPage - 1) * itemsPerPage + i;
                       return (
                         <td
-                          key={col.id}
+                          key={col.accessor}
                           style={{ width: col.width || "auto" }}
                           className="px-4 py-3 text-sm font-medium text-blackColor leading-[160%]"
                         >
@@ -121,7 +121,7 @@ export default function DynamicTable({
                     {(onView || onDelete) && (
                       <td className="px-4 py-3 cursor-pointer">
                         {onView && (
-                        <ThreeDotIcon />
+                          <ThreeDotIcon />
                         )}
                         {onDelete && (
                           <Image

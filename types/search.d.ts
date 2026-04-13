@@ -2,12 +2,18 @@ import type React from "react";
 
 export interface SearchResult {
   id: string | number;
-  label: string;
-  description?: string;
-  group?: string;
-  icon?: React.ReactNode;
-  metadata?: Record<string, unknown>;
-  [key: string]: unknown;
+  key: string;
+  vendorName: {
+    name: string;
+    image: string;
+    joinedDate: string;
+  };
+  category: string;
+  subcategory: string;
+  operatedService: string;
+  location: string;
+  subscription: string;
+  totalBookings: number;
 }
 
 export type SearchStatus = "idle" | "loading" | "success" | "error";

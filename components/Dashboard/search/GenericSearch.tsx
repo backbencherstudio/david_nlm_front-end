@@ -94,7 +94,7 @@ function GenericSearchInner<T extends SearchResult>(
 
   const handleSelect = useCallback(
     (item: T) => {
-      const label = item.label ?? String(item.id);
+      const label = item.vendorName?.name ?? String(item.id);
       if (!isControlled) setInternalValue(label);
       onChange?.(label);
       onSelect?.(item);
