@@ -176,7 +176,7 @@ function GenericSearchInner<T extends SearchResult>(
         className={cn(
           "search-input-wrapper",
           "flex items-center gap-1.5 px-2.5 py-2.5",
-          "h-8 w-full",
+          "h-9 w-full",
           "rounded-lg border",
           "transition-all duration-150 ease-out",
           isFocused

@@ -32,9 +32,9 @@ const DataFilterBar = ({ allCategories, allStatus, allPlans, allPayments }: Data
 
                 {allCategories && (
                     <GenericSelect
-
+                        placeholder='All Categories'
                         options={[{ label: "All Categories", value: "all" }, { label: "Active", value: "active" }, { label: "Inactive", value: "inactive" }]}
-                        width="w-full sm:w-[12rem] md:w-[16rem]"
+                        width="w-full sm:w-[12rem] md:w-[10rem]"
                         textSize="text-xs"
                         textColor="text-descriptionColor"
                         placeholderColor="text-grayColor2 font-medium"

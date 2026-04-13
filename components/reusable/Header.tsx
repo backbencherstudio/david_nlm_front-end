@@ -132,7 +132,7 @@ const Header: React.FC<HeaderProps> = ({
 
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <div className="flex gap-3 h-full items-center">
+                  <div className="flex gap-3 h-full items-center cursor-pointer">
 
                     <div className=" w-9 h-9  rounded-full overflow-hidden">
                       <Image

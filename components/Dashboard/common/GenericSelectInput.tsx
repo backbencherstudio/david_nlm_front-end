@@ -135,7 +135,7 @@ const GenericSelect = ({
             >
                 <SelectTrigger
                     className={cn(
-                        "flex w-full items-center justify-between transition-all duration-200",
+                        "flex w-full items-center justify-between transition-all duration-200 cursor-pointer",
                         variantBase,
                         height,
                         padding,
@@ -178,7 +178,7 @@ const GenericSelect = ({
                                 key={opt.value}
                                 value={opt.value}
                                 className={cn(
-                                    "relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 px-2 text-sm outline-none transition-colors",
+                                    "relative flex w-full select-none items-center rounded-sm py-1.5 px-2 text-sm outline-none transition-colors cursor-pointer",
                                     itemHoverBg,
                                     itemHoverText,
                                     itemClassName,
