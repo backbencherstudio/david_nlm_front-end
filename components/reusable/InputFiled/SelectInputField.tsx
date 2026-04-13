@@ -5,6 +5,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import FunnelIcon from "@/icons/FunnelIcon";
 
 type Option = { value: string; label: string };
 
@@ -16,6 +17,7 @@ interface SelecteInputFieldProps {
   className?: string;
   id?: string;
   disabled?: boolean;
+  showLeftIcon?: boolean;
 }
 
 
@@ -27,6 +29,7 @@ export default function SelecteInputField({
   className = "",
   id,
   disabled = false,
+  showLeftIcon,
 }: SelecteInputFieldProps) {
   return (
     <Select value={value} onValueChange={onValueChange}>
@@ -35,12 +38,13 @@ export default function SelecteInputField({
         className={`${className} w-full text-blackColor font-xs`}
         disabled={disabled}
       >
+        {showLeftIcon && <FunnelIcon />}
         <SelectValue placeholder={placeholder} />
       </SelectTrigger>
       <SelectContent>
         {options.map((opt) => (
           <SelectItem key={opt.value} value={opt.value}>
-           {opt.label}
+            {opt.label}
           </SelectItem>
         ))}
       </SelectContent>

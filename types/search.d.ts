@@ -60,6 +60,7 @@ export interface GenericSearchProps<T extends SearchResult = SearchResult> {
   className?: string;
   inputClassName?: string;
   dropdownClassName?: string;
+  size?: "sm" | "md" | "lg";
 
   // Accessibility
   "aria-label"?: string;

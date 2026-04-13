@@ -90,6 +90,7 @@ const Header: React.FC<HeaderProps> = ({
                 placeholder="Search"
                 debounceMs={0}
                 minChars={1}
+                size="lg"
               />
             </div>
 

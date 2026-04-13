@@ -41,17 +41,17 @@ const navItems: NavItem[] = [
   {
     icon: VendorsIcon,
     label: "Vendors",
-    href: "/vendors",
+    href: "/dashboard/vendors",
     type: "admin",
     children: [
       {
         label: "All Vendors",
-        href: "/vendors",
+        href: "/dashboard/vendors",
         icon: EventPlannersIcon
       },
       {
         label: "Pending Requests",
-        href: "/vendors/pending",
+        href: "/dashboard/vendors/pending",
         icon: PendingApprovalIcon
       }
     ]

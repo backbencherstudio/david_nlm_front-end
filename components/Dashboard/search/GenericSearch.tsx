@@ -13,6 +13,12 @@ import { cn } from "@/lib/utils";
 import { ClearIcon, LoadingSpinner, SearchIcon } from "../../../icons/SearchIcons";
 import { SearchDropdown } from "./SearchDropdown";
 
+const iconSizeVariant = {
+  sm: "w-3 h-3",
+  md: "w-4 h-4",
+  lg: "w-5.5 h-5.5",
+}
+
 function GenericSearchInner<T extends SearchResult>(
   props: GenericSearchProps<T>,
   ref: React.ForwardedRef<GenericSearchHandle>
@@ -30,6 +36,7 @@ function GenericSearchInner<T extends SearchResult>(
     debounceMs = 300,
     minChars = 1,
     maxResults = 50,
+    size = "md",
     showIcon = true,
     showClear = true,
     showRecentSearches = true,
@@ -168,9 +175,9 @@ function GenericSearchInner<T extends SearchResult>(
       <div
         className={cn(
           "search-input-wrapper",
-          "flex items-center gap-2 px-3",
-          "h-11 w-full",
-          "rounded-xl border",
+          "flex items-center gap-1.5 px-2.5 py-2.5",
+          "h-8 w-full",
+          "rounded-lg border",
           "transition-all duration-150 ease-out",
           isFocused
             ? "border-[var(--si-ring)] shadow-[0_0_0_3px_var(--si-ring-spread)] bg-[var(--si-bg)]"
@@ -180,7 +187,7 @@ function GenericSearchInner<T extends SearchResult>(
       >
         {showIcon && (
           <span className="shrink-0 text-[var(--si-icon)] transition-colors duration-150">
-            {showLoadingIcon ? <LoadingSpinner /> : <SearchIcon />}
+            {showLoadingIcon ? <LoadingSpinner /> : <SearchIcon className={iconSizeVariant[size]} />}
           </span>
         )}
 
