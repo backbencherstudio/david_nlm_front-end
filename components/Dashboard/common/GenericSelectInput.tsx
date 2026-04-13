@@ -71,6 +71,10 @@ export interface GenericSelectProps {
     leftIcon?: React.ReactNode;
     rightIcon?: React.ReactNode | null;
 
+    // ── Searchable ──────────────────────────────────────────────────────────
+    searchable?: boolean;
+    searchPlaceholder?: string;
+
     // ── State styling ───────────────────────────────────────────────────────
     disabledClassName?: string;
 
@@ -119,17 +123,30 @@ const GenericSelect = ({
     
     leftIcon,
     rightIcon,
+    searchable = false,
+    searchPlaceholder = "Search...",
     disabledClassName = "opacity-50 cursor-not-allowed",
     wrapperClassName,
     className,
 }: GenericSelectProps) => {
     const variantBase = VARIANT_DEFAULTS[variant];
+    const [searchQuery, setSearchQuery] = React.useState("");
+
+    const filteredOptions = React.useMemo(() => {
+        if (!searchQuery) return options;
+        return options.filter((opt) =>
+            opt.label.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+    }, [options, searchQuery]);
 
     return (
         <div className={cn("relative", width, wrapperClassName)}>
             <Select
                 value={value}
                 onValueChange={onValueChange}
+                onOpenChange={(open) => {
+                    if (!open) setSearchQuery("");
+                }}
                 defaultValue={defaultValue}
                 disabled={disabled}
             >
@@ -157,11 +174,6 @@ const GenericSelect = ({
                         {leftIcon && <span className="shrink-0">{leftIcon}</span>}
                         <SelectValue placeholder={placeholder} />
                     </div>
-                    {/* {rightIcon !== null && (
-                        <div className="shrink-0 ml-2">
-                            {rightIcon !== undefined ? rightIcon : <ChevronDownIcon className="h-4 w-4 opacity-50" />}
-                        </div>
-                    )} */}
                 </SelectTrigger>
 
                 <SelectContent
@@ -172,25 +184,43 @@ const GenericSelect = ({
                         dropdownClassName
                     )}
                 >
-                    <div className="p-1">
-                        {options.map((opt) => (
-                            <SelectItem
-                                key={opt.value}
-                                value={opt.value}
-                                className={cn(
-                                    "relative flex w-full select-none items-center rounded-sm py-1.5 px-2 text-sm outline-none transition-colors cursor-pointer",
-                                    itemHoverBg,
-                                    itemHoverText,
-                                    itemClassName,
-                                    opt.className
-                                )}
-                            >
-                                <div className="flex items-center gap-2">
-                                    {opt.icon && <span className="shrink-0">{opt.icon}</span>}
-                                    <span>{opt.label}</span>
-                                </div>
-                            </SelectItem>
-                        ))}
+                    {searchable && (
+                        <div className="p-2 border-b">
+                            <input
+                                type="text"
+                                className="w-full px-2 py-1 text-xs border rounded outline-none focus:border-purpleOne"
+                                placeholder={searchPlaceholder}
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                                onKeyDown={(e) => e.stopPropagation()} // Prevent select from closing on space
+                            />
+                        </div>
+                    )}
+                    <div className="p-1 max-h-60 overflow-y-auto">
+                        {filteredOptions.length > 0 ? (
+                            filteredOptions.map((opt) => (
+                                <SelectItem
+                                    key={opt.value}
+                                    value={opt.value}
+                                    className={cn(
+                                        "relative flex w-full select-none items-center rounded-sm py-1.5 px-2 text-sm outline-none transition-colors cursor-pointer",
+                                        itemHoverBg,
+                                        itemHoverText,
+                                        itemClassName,
+                                        opt.className
+                                    )}
+                                >
+                                    <div className="flex items-center gap-2">
+                                        {opt.icon && <span className="shrink-0">{opt.icon}</span>}
+                                        <span>{opt.label}</span>
+                                    </div>
+                                </SelectItem>
+                            ))
+                        ) : (
+                            <div className="py-2 px-2 text-xs text-center text-gray-500">
+                                No results found
+                            </div>
+                        )}
                     </div>
                 </SelectContent>
             </Select>

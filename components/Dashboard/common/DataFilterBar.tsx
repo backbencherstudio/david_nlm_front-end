@@ -8,12 +8,34 @@ import FunnelIcon from '@/icons/FunnelIcon';
 interface DataFilterBarProps {
     onSearch: (query: string) => void;
     allCategories?: boolean;
+    categoryValue?: string;
+    onCategoryChange?: (category: string) => void;
     allStatus?: boolean;
+    statusValue?: string;
+    onStatusChange?: (status: string) => void;
     allPlans?: boolean;
+    planValue?: string;
+    onPlanChange?: (plan: string) => void;
     allPayments?: boolean;
+    paymentValue?: string;
+    onPaymentChange?: (payment: string) => void;
 }
 
-const DataFilterBar = ({ onSearch, allCategories, allStatus, allPlans, allPayments }: DataFilterBarProps) => {
+const DataFilterBar = ({
+    onSearch,
+    onCategoryChange,
+    categoryValue,
+    allCategories,
+    allStatus,
+    statusValue,
+    onStatusChange,
+    allPlans,
+    planValue,
+    onPlanChange,
+    allPayments,
+    paymentValue,
+    onPaymentChange
+}: DataFilterBarProps) => {
     return (
         <div className='flex flex-col sm:flex-row justify-between items-center bg-grayBg p-3 rounded-xl gap-2'>
 
@@ -29,8 +51,8 @@ const DataFilterBar = ({ onSearch, allCategories, allStatus, allPlans, allPaymen
                 renderResult={(item, query) => (
                     <div className="flex items-center gap-3 px-3 py-2.5 w-full">
                         {item.vendorName?.image && (
-                            <img 
-                                src={item.vendorName.image} 
+                            <img
+                                src={item.vendorName.image}
                                 alt={item.vendorName.name}
                                 className="w-8 h-8 rounded-full object-cover"
                             />
@@ -55,8 +77,16 @@ const DataFilterBar = ({ onSearch, allCategories, allStatus, allPlans, allPaymen
                 {allCategories && (
                     <GenericSelect
                         placeholder='All Categories'
-                        options={[{ label: "All Categories", value: "all" }, { label: "Active", value: "active" }, { label: "Inactive", value: "inactive" }]}
-                        width="w-full sm:w-[12rem] md:w-[10rem]"
+                        value={categoryValue}
+                        onValueChange={onCategoryChange}
+                        searchable={true}
+                        options={[
+                            { label: "All Categories", value: "all" },
+                            { label: "Event", value: "Event" },
+                            { label: "Beauty", value: "Beauty" },
+                            { label: "Rental", value: "Rental" },
+                            { label: "Creative", value: "Creative" },
+                        ]}
                         textSize="text-xs"
                         textColor="text-descriptionColor"
                         placeholderColor="text-grayColor2 font-medium"
@@ -76,6 +106,8 @@ const DataFilterBar = ({ onSearch, allCategories, allStatus, allPlans, allPaymen
                             { label: "Active", value: "active" },
                             { label: "Inactive", value: "inactive" },
                         ]}
+                        value={statusValue}
+                        onValueChange={onStatusChange}
                         placeholder="All Status"
                         width="w-full sm:w-[12rem] md:w-[16rem]"
                     />
@@ -88,6 +120,8 @@ const DataFilterBar = ({ onSearch, allCategories, allStatus, allPlans, allPaymen
                             { label: "Active", value: "active" },
                             { label: "Inactive", value: "inactive" },
                         ]}
+                        value={planValue}
+                        onValueChange={onPlanChange}
                         placeholder="All Plans"
                         width="w-full sm:w-[12rem] md:w-[16rem]"
                     />
@@ -100,6 +134,8 @@ const DataFilterBar = ({ onSearch, allCategories, allStatus, allPlans, allPaymen
                             { label: "Active", value: "active" },
                             { label: "Inactive", value: "inactive" },
                         ]}
+                        value={paymentValue}
+                        onValueChange={onPaymentChange}
                         placeholder="All Payments"
                         width="w-full sm:w-[12rem] md:w-[16rem]"
                     />

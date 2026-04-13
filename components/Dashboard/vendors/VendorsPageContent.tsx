@@ -10,19 +10,44 @@ import { searchLocally } from "@/helper/localSearct";
 const VendorsPageContent = () => {
     const [filteredData, setFilteredData] = useState(vendors);
 
-    const handleSearch = (query: string) => {
-        if (!query) {
-            setFilteredData(vendors);
-            return;
-        }
+    const [filters, setFilters] = useState({
+    search: "",
+    category: "all",
+    subscription: "all",
+  });
 
-        const result = searchLocally(query);
-        setFilteredData(result);
-    };
+  const applyFilters = (newFilters: any) => {
+    const updated = { ...filters, ...newFilters };
+    setFilters(updated);
+
+    let data = [...vendors];
+
+    if (updated.search) {
+      data = searchLocally(updated.search);
+    }
+
+    if (updated.category !== "all") {
+      data = data.filter((v) => v.category === updated.category);
+    }
+
+    // if (updated.subscription !== "all") {
+    //     data = data.filter((v) => v.subscription.toLowerCase() === updated.subscription.toLowerCase());
+    // }
+
+    setFilteredData(data);
+  };
 
     return (
         <>
-            <DataFilterBar onSearch={handleSearch} allCategories />
+            <DataFilterBar  
+                onSearch={(q) => applyFilters({ search: q })}
+                onCategoryChange={(val) => applyFilters({ category: val })} 
+                categoryValue={filters.category}
+                allCategories
+                // allStatus
+                // statusValue={filters.subscription}
+                // onStatusChange={(val) => applyFilters({ subscription: val })}
+            />
 
             <div className="mt-5">
                 <DynamicTable
