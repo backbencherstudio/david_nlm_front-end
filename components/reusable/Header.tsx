@@ -19,6 +19,7 @@ import NotificationIcon from "@/icons/NotificationIcon";
 import BlueDot from "@/icons/BlueDot";
 import { SearchResult } from "@/types";
 import { GenericSearch } from "../Dashboard/search/GenericSearch";
+import ChevronDownIcon from "@/icons/ChevronDownIcon";
 
 interface HeaderProps {
   onNotificationClick?: () => void;
@@ -144,7 +145,7 @@ const Header: React.FC<HeaderProps> = ({
 
 
                     <button className=" cursor-pointer">
-                      <IoIosArrowDown size={16} className="text-blackColor" />
+                     <ChevronDownIcon purple/>
                     </button>
                   </div>
                 </DropdownMenuTrigger>

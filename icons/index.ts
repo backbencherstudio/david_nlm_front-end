@@ -1,0 +1,12 @@
+export { default as SidebarIcon } from "@/icons/SidebarIcon";
+export { default as OverviewIcon } from "@/icons/OverviewIcon";
+export { default as VendorsIcon } from "@/icons/VendorsIcon";
+export { default as EventPlannersIcon } from "@/icons/EventPlannersIcon";
+export { default as BookingIcon } from "@/icons/BookingIcon";
+export { default as TransactionsIcon } from "@/icons/TransactionsIcon";
+export { default as ServicesIcon } from "@/icons/ServicesIcon";
+export { default as SettingIcon } from "@/icons/SettingIcon";
+export { default as PrivacyPolicyIcon } from "@/icons/PrivacyPolicyIcon";
+export { default as LogoutIcon } from "@/icons/LogoutIcon";
+export { default as ChevronDownIcon } from "@/icons/ChevronDownIcon";
+export { default as WarningIcon } from "@/icons/WarningIcon";
