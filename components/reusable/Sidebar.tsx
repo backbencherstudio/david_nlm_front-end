@@ -15,6 +15,8 @@ import SiteLogo from "../landing-page/SiteLogo";
 import { OverviewIcon, VendorsIcon, EventPlannersIcon, BookingIcon, TransactionsIcon, ServicesIcon, SettingIcon, PrivacyPolicyIcon, LogoutIcon, ChevronDownIcon, SidebarIcon } from "@/icons";
 import { ChevronDown } from "lucide-react";
 import PendingApprovalIcon from "@/icons/PendingApprovalIcon";
+import { useActiveNav } from "@/hooks";
+import { cn } from "@/lib/utils";
 
 interface NavItem {
   icon: any;
@@ -41,7 +43,7 @@ const navItems: NavItem[] = [
   {
     icon: VendorsIcon,
     label: "Vendors",
-    href: "/dashboard/vendors",
+    href: "/dashboard",
     type: "admin",
     children: [
       {
@@ -51,7 +53,7 @@ const navItems: NavItem[] = [
       },
       {
         label: "Pending Requests",
-        href: "/dashboard/vendors/pending",
+        href: "/dashboard/pending-requests",
         icon: PendingApprovalIcon
       }
     ]
@@ -107,16 +109,11 @@ const otherItems = [
 const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
   const pathname = usePathname();
   const router = useRouter();
+  const { isActive } = useActiveNav();
 
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
 
-  const isActive = (href: string): boolean => {
-    if (href === "/") {
-      return pathname === "/";
-    }
-    return pathname.startsWith(href);
-  };
   const handleLogout = () => {
     CookieHelper.destroy({ key: "accessToken" });
     router.push("/login");
@@ -155,7 +152,7 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
         <div className="flex-1 pb-5">
           <div className="space-y-2 mb-8">
             {navItems.map((item, idx) => {
-              const active = isActive(item.href);
+              const active = isActive(item.href, true);
               const isOpenMenu = openMenu === item.label;
               const showChevron = item.children;
 
@@ -209,21 +206,28 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
           
                   {item.children && isOpenMenu && (
                     <div className="ml-8 mt-1 space-y-1">
-                      {item.children.map((child, childIdx) => (
-                        <Link
-                          key={childIdx}
-                          href={child.href}
-                          onClick={onClose}
-                          className={`flex items-center gap-2 px-3 py-2 rounded-md ${isActive(child.href) ? "bg-gray-100" : "hover:bg-gray-100"
-                            }`}
-                        >
-                          <child.icon className="w-4 h-4" />
-                          <span  className={`text-base font-medium whitespace-nowrap ${active
-                              ? "text-white"
-                              : "text-descriptionColor hover:text-purpleOne"
-                            }`}>{child.label}</span>
-                        </Link>
-                      ))}
+                      {item.children.map((child, childIdx) => {
+                        const childActive = isActive(child.href, true);
+                        return (
+                          <Link
+                            key={childIdx}
+                            href={child.href}
+                            onClick={onClose}
+                            className={cn(
+                              "flex items-center gap-2 px-3 py-2 rounded-md transition-all duration-200",
+                              childActive ? "gradient-bg opacity-100 text-white shadow-sm" : "hover:bg-gray-100"
+                            )}
+                          >
+                            <child.icon className={cn("w-4 h-4 transition-colors", childActive ? "text-white" : "text-descriptionColor")} />
+                            <span className={cn(
+                              "text-[13px] font-medium whitespace-nowrap transition-colors",
+                              childActive ? "text-white" : "text-descriptionColor hover:text-purpleOne"
+                            )}>
+                              {child.label}
+                            </span>
+                          </Link>
+                        );
+                      })}
                     </div>
                   )}
                 </div>
@@ -236,7 +240,7 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
           <div className="mt-8">
             <h3 className="text-sm font-bold text-blackColor mb-2 px-3">Others</h3>
             {otherItems.map((item, idx) => {
-              const active = isActive(item.href);
+              const active = isActive(item.href, false);
               return (
                 <Link
                   key={idx}
