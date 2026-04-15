@@ -302,3 +302,17 @@ export const bookingsData = [
         status: "Complete"
     }
 ];
+
+export const BOOKING_STATUS_OPTIONS = [
+    { label: "All", value: "all" },
+    { label: "Pending", value: "pending" }, 
+    { label: "Complete", value: "complete" },
+    { label: "In Progress", value: "in-progress" },
+];
+
+export const BOOKING_PAYMENT_OPTIONS = [
+    { label: "All", value: "all" },
+    { label: "Paid", value: "paid" },
+    { label: "Pending", value: "pending" },
+    { label: "Refunded", value: "refunded" },
+];

@@ -75,7 +75,7 @@ export const BOOKING_COLUMNS = [
         width: { mobile: "100px", desktop: "140px" },
         formatter: (value: string) => (
             <div className="flex items-center gap-2">
-                <span className={`text-sm font-medium leading-[160%] border-[0.5px] ${paymentStatus[value]}`}>
+                <span className={`text-sm font-medium leading-[160%] border-[0.5px] whitespace-nowrap ${paymentStatus[value]}`}>
                     {value}
                 </span>
             </div>
@@ -87,7 +87,7 @@ export const BOOKING_COLUMNS = [
         label: "Status",
         width: { mobile: "100px", desktop: "140px" }, formatter: (value: string) => (
             <div className="flex items-center gap-2">
-                <span className={`text-sm font-medium leading-[160%] border-[0.5px] ${progressStatus[value]}`}>
+                <span className={`text-sm font-medium leading-[160%] border-[0.5px] whitespace-nowrap ${progressStatus[value]}`}>
                     {value}
                 </span>
             </div>

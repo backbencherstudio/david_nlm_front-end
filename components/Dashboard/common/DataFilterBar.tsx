@@ -24,6 +24,7 @@ interface DataFilterBarProps {
     options?: any[];
     statusOptions?: any[];
     planOptions?: any[];
+    paymentOptions?: any[]
 }
 
 const DataFilterBar = ({
@@ -51,6 +52,12 @@ const DataFilterBar = ({
         { label: "All Plans", value: "all" },
         { label: "Active", value: "active" },
         { label: "Inactive", value: "inactive" },
+    ],
+    paymentOptions = [
+        { label: "All Payments", value: "all" },
+        { label: "Paid", value: "paid" },
+        { label: "Pending", value: "pending" },
+        { label: "Refunded", value: "refunded" },
     ]
 }: DataFilterBarProps) => {
     return (
@@ -148,11 +155,7 @@ const DataFilterBar = ({
 
                 {allPayments && (
                     <GenericSelect
-                        options={[
-                            { label: "All Payments", value: "all" },
-                            { label: "Active", value: "active" },
-                            { label: "Inactive", value: "inactive" },
-                        ]}
+                        options={paymentOptions}
                         value={paymentValue}
                         onValueChange={onPaymentChange}
                         placeholder="All Payments"
