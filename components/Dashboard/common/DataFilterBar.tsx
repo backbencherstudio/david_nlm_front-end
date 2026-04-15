@@ -67,19 +67,19 @@ const DataFilterBar = ({
                 onSelect={(item: any) => console.log(item.vendorName?.name || item.plannerName?.name)}
                 renderResult={(item: any) => (
                     <div className="flex items-center gap-3 px-3 py-2.5 w-full">
-                        {(item.vendorName?.image || item.plannerName?.image) && (
+                        {(item.vendorName?.image || item.plannerName?.image || item?.info?.image) && (
                             <img
-                                src={item.vendorName?.image || item.plannerName?.image}
-                                alt={item.vendorName?.name || item.plannerName?.name}
+                                src={item.vendorName?.image || item.plannerName?.image || item?.info?.image}
+                                alt={item.vendorName?.name || item.plannerName?.name || item?.info?.eventName}
                                 className="w-8 h-8 rounded-full object-cover"
                             />
                         )}
                         <div className="min-w-0 flex-1">
                             <div className="text-[14px] text-gray-900 truncate">
-                                {item.vendorName?.name || item.plannerName?.name}
+                                {item.vendorName?.name || item.plannerName?.name || item?.info?.eventName}
                             </div>
                             <div className="text-[12px] text-gray-500 truncate">
-                                {item.category || item.eventType} • {item.location || item.services}
+                                {item.category || item.eventType} • {item.location || item.services || item?.info?.date}
                             </div>
                         </div>
                     </div>

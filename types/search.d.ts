@@ -16,8 +16,18 @@ export interface SearchResult {
   totalBookings: number;
   label?: string;
   description?: string;
-  icon?:React.ReactNode;
-  _isRecent?:boolean
+  icon?: React.ReactNode;
+  _isRecent?: boolean
+  info?: {
+    eventName: string;
+    date: string;
+  }
+  plannerName: {
+    name: string;
+    image: string;
+    joinedDate: string;
+  }
+  customer?: string;
 }
 
 export type SearchStatus = "idle" | "loading" | "success" | "error";
