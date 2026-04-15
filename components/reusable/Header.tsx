@@ -1,6 +1,6 @@
 "use client";
 
-import { Menu, X } from "lucide-react";
+import { Menu, PlusIcon, X } from "lucide-react";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import React, { useState } from "react";
@@ -22,6 +22,7 @@ import { GenericSearch } from "../Dashboard/search/GenericSearch";
 import ChevronDownIcon from "@/icons/ChevronDownIcon";
 import { PAGE_LINKS } from "@/data/nav";
 import { useHeaderHeading } from "@/hooks/useHeaderHeading";
+import GenericButton from "../Dashboard/auth/GenericButton";
 
 interface HeaderProps {
   onNotificationClick?: () => void;
@@ -30,16 +31,14 @@ interface HeaderProps {
   onMenuClick: () => void;
 }
 
-
 function searchNavigation(query: string) {
   const q = query.toLowerCase();
   return PAGE_LINKS.filter(
     (item) =>
       item.label.toLowerCase().includes(q) ||
-      item.description.toLowerCase().includes(q)
+      item.description.toLowerCase().includes(q),
   );
 }
-
 
 const Header: React.FC<HeaderProps> = ({
   onMenuClick,
@@ -50,6 +49,8 @@ const Header: React.FC<HeaderProps> = ({
   const router = useRouter();
   const path = usePathname();
   const { heading, description } = useHeaderHeading({ path });
+  const isOverView = path === "/dashboard";
+  const isServices = path === "/dashboard/services";
 
   return (
     <nav className="  bg-grayBg p-5">
@@ -74,26 +75,33 @@ const Header: React.FC<HeaderProps> = ({
         <div className="flex items-center gap-2 lg:gap-6 justify-between w-full">
           <div className=" lg:block">
             <h2 className="text-blackColor font-medium text-2xl">{heading}</h2>
-            <p className="text-descriptionColor leading-[160%] hidden xl:block">{description}</p>
+            <p className="text-descriptionColor leading-[160%] hidden xl:block">
+              {description}
+            </p>
           </div>
 
           <div className="flex items-center gap-2 lg:gap-5 justify-between">
-
             <div className="hidden md:block w-full">
-              <GenericSearch
-                onSearch={searchNavigation as any}
-                onSelect={(item: any) => {
-                  if (item && item.id) {
-                    router.push(item.id);
-                  }
-                }}
-                placeholder="Search pages and settings..."
-                debounceMs={0}
-                minChars={1}
-                size="lg"
-              />
+              {isOverView && (
+                <GenericSearch
+                  onSearch={searchNavigation as any}
+                  onSelect={(item: any) => {
+                    if (item && item.id) {
+                      router.push(item.id);
+                    }
+                  }}
+                  placeholder="Search pages and settings..."
+                  debounceMs={0}
+                  minChars={1}
+                  size="lg"
+                />
+              )}
+              {isServices && (
+                <GenericButton variant="primary" size="xlg" icon={<PlusIcon />}>
+                  Create new Service
+                </GenericButton>
+              )}
             </div>
-
 
             <div className="flex items-center gap-3">
               <Popover open={popoverOpen} onOpenChange={setPopoverOpen}>
@@ -133,7 +141,6 @@ const Header: React.FC<HeaderProps> = ({
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <div className="flex gap-3 h-full items-center cursor-pointer">
-
                     <div className=" w-9 h-9  rounded-full overflow-hidden">
                       <Image
                         src={"/vendly_profile.jpg"}
@@ -143,7 +150,6 @@ const Header: React.FC<HeaderProps> = ({
                         className="rounded-full w-full h-full"
                       />
                     </div>
-
 
                     <button className=" cursor-pointer">
                       <ChevronDownIcon purple />
