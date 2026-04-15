@@ -4,8 +4,8 @@ import DataFilterBar from "../common/DataFilterBar";
 import { vendors } from "@/data/vendors";
 import { useState } from "react";
 import DynamicTable from "@/components/reusable/DynamicTable";
-import { VENDOR_COLUMNS } from "./tableConfig";
-import { searchLocally } from "@/helper/localSearct";
+import { VENDOR_CATEGORY_OPTIONS, VENDOR_COLUMNS } from "./tableConfig";
+import { searchLocally } from "@/helper/searchLocally";
 import { usePagination } from "@/hooks";
 
 const VendorsPageContent = () => {
@@ -37,7 +37,7 @@ const VendorsPageContent = () => {
     let data = [...vendors];
 
     if (updated.search) {
-      data = searchLocally(updated.search);
+      data = searchLocally(updated.search, vendors);
     }
 
     if (updated.category !== "all") {
@@ -58,6 +58,8 @@ const VendorsPageContent = () => {
         onCategoryChange={(val) => applyFilters({ category: val })}
         categoryValue={filters.category}
         allCategories
+        searchData={vendors}
+        options={VENDOR_CATEGORY_OPTIONS}
       // allStatus
       // statusValue={filters.subscription}
       // onStatusChange={(val) => applyFilters({ subscription: val })}

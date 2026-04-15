@@ -1,9 +1,10 @@
 'use client'
-import { searchLocally } from '@/helper/localSearct';
+import { searchLocally } from '@/helper/searchLocally';
 import { GenericSearch } from '../search/GenericSearch';
 import SelecteInputField from '@/components/reusable/InputFiled/SelectInputField';
 import GenericSelect from './GenericSelectInput';
 import FunnelIcon from '@/icons/FunnelIcon';
+import { VENDOR_CATEGORY_OPTIONS } from '../vendors/tableConfig';
 
 interface DataFilterBarProps {
     onSearch: (query: string) => void;
@@ -19,6 +20,10 @@ interface DataFilterBarProps {
     allPayments?: boolean;
     paymentValue?: string;
     onPaymentChange?: (payment: string) => void;
+    searchData?: any[];
+    options?: any[];
+    statusOptions?: any[];
+    planOptions?: any[];
 }
 
 const DataFilterBar = ({
@@ -34,35 +39,47 @@ const DataFilterBar = ({
     onPlanChange,
     allPayments,
     paymentValue,
-    onPaymentChange
+    onPaymentChange,
+    searchData = [],
+    options = [],
+    statusOptions = [
+        { label: "All Status", value: "all" },
+        { label: "Active", value: "active" },
+        { label: "Inactive", value: "inactive" },
+    ],
+    planOptions = [
+        { label: "All Plans", value: "all" },
+        { label: "Active", value: "active" },
+        { label: "Inactive", value: "inactive" },
+    ]
 }: DataFilterBarProps) => {
     return (
         <div className='flex flex-col sm:flex-row justify-between items-center bg-grayBg p-3 rounded-xl gap-2'>
 
             {/* Search */}
             <GenericSearch
-                onSearch={searchLocally}
+                onSearch={(q) => searchLocally(q, searchData)}
                 onChange={onSearch}
                 onClear={() => onSearch("")}
                 debounceMs={10}
                 placeholder='Search Vendor'
                 minChars={1}
-                onSelect={(country) => console.log(country.vendorName.name)}
-                renderResult={(item, query) => (
+                onSelect={(item: any) => console.log(item.vendorName?.name || item.plannerName?.name)}
+                renderResult={(item: any) => (
                     <div className="flex items-center gap-3 px-3 py-2.5 w-full">
-                        {item.vendorName?.image && (
+                        {(item.vendorName?.image || item.plannerName?.image) && (
                             <img
-                                src={item.vendorName.image}
-                                alt={item.vendorName.name}
+                                src={item.vendorName?.image || item.plannerName?.image}
+                                alt={item.vendorName?.name || item.plannerName?.name}
                                 className="w-8 h-8 rounded-full object-cover"
                             />
                         )}
                         <div className="min-w-0 flex-1">
                             <div className="text-[14px] text-gray-900 truncate">
-                                {item.vendorName?.name}
+                                {item.vendorName?.name || item.plannerName?.name}
                             </div>
                             <div className="text-[12px] text-gray-500 truncate">
-                                {item.category} • {item.location}
+                                {item.category || item.eventType} • {item.location || item.services}
                             </div>
                         </div>
                     </div>
@@ -80,13 +97,7 @@ const DataFilterBar = ({
                         value={categoryValue}
                         onValueChange={onCategoryChange}
                         searchable={true}
-                        options={[
-                            { label: "All Categories", value: "all" },
-                            { label: "Event", value: "Event" },
-                            { label: "Beauty", value: "Beauty" },
-                            { label: "Rental", value: "Rental" },
-                            { label: "Creative", value: "Creative" },
-                        ]}
+                        options={options}
                         textSize="text-xs"
                         textColor="text-descriptionColor"
                         placeholderColor="text-grayColor2 font-medium"
@@ -101,29 +112,37 @@ const DataFilterBar = ({
 
                 {allStatus && (
                     <GenericSelect
-                        options={[
-                            { label: "All Status", value: "all" },
-                            { label: "Active", value: "active" },
-                            { label: "Inactive", value: "inactive" },
-                        ]}
+                        options={statusOptions}
                         value={statusValue}
                         onValueChange={onStatusChange}
                         placeholder="All Status"
                         width="w-full sm:w-[12rem] md:w-[16rem]"
+                        textSize="text-xs"
+                        textColor="text-descriptionColor"
+                        placeholderColor="text-grayColor2 font-medium"
+                        borderWidth="border-[0.5px]"
+                        shadow="shadow-none"
+                        hoverTextColor="hover:text-purpleTwo"
+                        dropdownShadow="shadow-none"
+                        itemHoverText="focus:text-purpleOne"
                     />
                 )}
 
                 {allPlans && (
                     <GenericSelect
-                        options={[
-                            { label: "All Plans", value: "all" },
-                            { label: "Active", value: "active" },
-                            { label: "Inactive", value: "inactive" },
-                        ]}
+                        options={planOptions}
                         value={planValue}
                         onValueChange={onPlanChange}
                         placeholder="All Plans"
                         width="w-full sm:w-[12rem] md:w-[16rem]"
+                        textSize="text-xs"
+                        textColor="text-descriptionColor"
+                        placeholderColor="text-grayColor2 font-medium"
+                        borderWidth="border-[0.5px]"
+                        shadow="shadow-none"
+                        hoverTextColor="hover:text-purpleTwo"
+                        dropdownShadow="shadow-none"
+                        itemHoverText="focus:text-purpleOne"
                     />
                 )}
 
@@ -138,6 +157,14 @@ const DataFilterBar = ({
                         onValueChange={onPaymentChange}
                         placeholder="All Payments"
                         width="w-full sm:w-[12rem] md:w-[16rem]"
+                        textSize="text-xs"
+                        textColor="text-descriptionColor"
+                        placeholderColor="text-grayColor2 font-medium"
+                        borderWidth="border-[0.5px]"
+                        shadow="shadow-none"
+                        hoverTextColor="hover:text-purpleTwo"
+                        dropdownShadow="shadow-none"
+                        itemHoverText="focus:text-purpleOne"
                     />
                 )}
 

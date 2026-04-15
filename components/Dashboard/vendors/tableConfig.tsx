@@ -44,3 +44,11 @@ export const VENDOR_COLUMNS = [
         width: { mobile: "100px", desktop: "200px" }
     },
 ]
+
+export const VENDOR_CATEGORY_OPTIONS = [
+    { label: "All Categories", value: "all" },
+    { label: "Event", value: "Event" },
+    { label: "Beauty", value: "Beauty" },
+    { label: "Rental", value: "Rental" },
+    { label: "Creative", value: "Creative" },
+]

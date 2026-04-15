@@ -43,7 +43,7 @@ const navItems: NavItem[] = [
   {
     icon: VendorsIcon,
     label: "Vendors",
-    href: "/dashboard",
+    href: "/vendors",
     type: "admin",
     children: [
       {
@@ -53,7 +53,7 @@ const navItems: NavItem[] = [
       },
       {
         label: "Pending Requests",
-        href: "/dashboard/pending-requests",
+        href: "/dashboard/vendors/pending-requests",
         icon: PendingApprovalIcon
       }
     ]
@@ -64,6 +64,18 @@ const navItems: NavItem[] = [
     label: "Event Planners",
     href: "/event-planners",
     type: "admin",
+    children: [
+      {
+        label: "All Event Planners",
+        href: "/dashboard/event-planners",
+        icon: EventPlannersIcon
+      },
+      {
+        label: "Pending Requests",
+        href: "/dashboard/event-planners/pending-requests",
+        icon: PendingApprovalIcon
+      }
+    ]
   },
   {
     icon: BookingIcon,
@@ -172,7 +184,7 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
                     }}
                     className={`
           flex items-center group gap-3 px-3 py-2.5 lg:py-3 rounded-lg 
-          hover:text-whiteColor hover:bg-whiteColor text-blackColor transition-all duration-200
+          hover:bg-whiteColor text-blackColor transition-all duration-200
           ${active ? "gradient-bg opacity-100 text-white" : ""}
           ${idx === 0 ? "mb-4" : ""}
           cursor-pointer
@@ -186,8 +198,8 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
 
                         <span
                           className={`text-base font-medium whitespace-nowrap ${active
-                              ? "text-white"
-                              : "text-descriptionColor hover:text-purpleOne"
+                            ? "text-white"
+                            : "text-descriptionColor hover:text-purpleOne"
                             }`}
                         >
                           {item.label}
@@ -203,7 +215,7 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
                     </div>
                   </div>
 
-          
+
                   {item.children && isOpenMenu && (
                     <div className="ml-8 mt-1 space-y-1">
                       {item.children.map((child, childIdx) => {
