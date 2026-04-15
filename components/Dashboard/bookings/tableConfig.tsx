@@ -23,9 +23,9 @@ export const BOOKING_COLUMNS = [
     {
         accessor: "info",
         label: "Planner Name",
-        width: { mobile: "180px", desktop: "260px" },
+        width: { mobile: "180px", desktop: "270px" },
         formatter: (value: any) => (
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 w-max">
                 <Image
                     src={value?.image || "/no-image.jpg"}
                     alt="planner"

@@ -5,6 +5,7 @@ import React from "react";
 import Loader from "./Loader";
 import PaginationPage from "./PaginationPage";
 import ThreeDotIcon from "@/icons/ThreeDotIcon";
+import { useIsMobile } from "@/hooks";
 
 interface ColumnConfig {
   label: React.ReactNode;
@@ -48,6 +49,17 @@ export default function DynamicTable({
   error,
   renderFooter,
 }: DynamicTableProps) {
+  const isMobile = useIsMobile()
+
+  const resolvedWidth = (width: ColumnConfig['width']) => {
+
+    if(typeof width === "object"){
+      return isMobile ? width.mobile : width.desktop;
+    }
+
+    return width
+
+  }
   return (
     <div>
       {/* Table Wrapper with Border & Radius */}
@@ -66,8 +78,8 @@ export default function DynamicTable({
                   return (
                     <th
                       key={col.accessor}
-                      style={{ width: col.width || "auto" }}
-                      className={`${isFirst ? "rounded-tl-md" : ""} px-4! bg-tableHeaderBg   py-5! text-sm font-medium border-b  `}
+                      style={{ width: resolvedWidth(col.width) || "auto" }}
+                      className={`${isFirst ? "rounded-tl-md" : ""} px-4! bg-tableHeaderBg py-5! text-sm font-medium border-b whitespace-nowrap`}
                     >
                       {col.label}
                     </th>
@@ -75,7 +87,7 @@ export default function DynamicTable({
                 })}
                 {(onView || onDelete) && (
                   <th>
-                    <div className="px-4! bg-tableHeaderBg   py-5! text-sm font-medium border-b rounded-tr-md ">
+                    <div className="px-4! bg-tableHeaderBg  py-5! text-sm font-medium border-b rounded-tr-md ">
                       Action
                     </div>
                   </th>
@@ -102,8 +114,8 @@ export default function DynamicTable({
                       return (
                         <td
                           key={col.accessor}
-                          style={{ width: col.width || "auto" }}
-                          className="px-4 py-3 text-sm font-medium text-blackColor leading-[160%]"
+                          style={{ width: resolvedWidth(col.width) || "auto" }}
+                          className="px-4 py-3 text-sm font-medium text-blackColor leading-[160%] whitespace-nowrap"
                         >
                           {col.formatter
                             ? col.formatter(
