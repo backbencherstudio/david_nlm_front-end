@@ -1,6 +1,6 @@
 import React from "react";
 
-type Variant = "primary" | "outline";
+type Variant = "primary" | "outline" |"plain";
 type Size = "xsm" | "sm" | "md" | "xl" | "lg" | "xll";
 type Rounded = "full" | "lg" | "xl" | "2xl";
 type IconPosition = "left" | "right";
@@ -28,6 +28,10 @@ const variantStyles: Record<Variant, string> = {
     "border border-purpleOne bg-gradient-to-r from-purpleOne via-purpleTwo to-purpleThree bg-clip-text text-transparent font-semibold",
     "disabled:border-indigo-200 disabled:text-indigo-300 disabled:cursor-not-allowed",
   ].join(" "),
+  plain: [
+    " bg-white font-semibold text-descriptionColor cursor-pointer",
+    " disabled:cursor-not-allowed",
+  ].join(" "),
 };
 
 const sizeStyles: Record<Size, string> = {
@@ -35,7 +39,7 @@ const sizeStyles: Record<Size, string> = {
   sm: "px-3 py-1.5 text-sm gap-1.5",
   xll: "px-6 py-3 text-xs gap-2.5",
   md: "px-3 py-2 text-sm gap-2",
-  xl: "px-2 py-[0.625rem] text-lg gap-2.5",
+  xl: "px-2 py-[0.625rem] text-xs gap-2.5",
   lg: "px-6 py-3 text-lg gap-2.5",
 };
 

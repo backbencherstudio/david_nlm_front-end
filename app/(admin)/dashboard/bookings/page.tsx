@@ -1,8 +1,9 @@
+import BookingsPageContent from '@/components/Dashboard/bookings/BookingsPageContent'
 import React from 'react'
 
 const BookingsPage = () => {
     return (
-        <div>BookingsPage</div>
+        <BookingsPageContent />
     )
 }
 
