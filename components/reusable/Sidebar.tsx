@@ -17,14 +17,9 @@ import { ChevronDown } from "lucide-react";
 import PendingApprovalIcon from "@/icons/PendingApprovalIcon";
 import { useActiveNav } from "@/hooks";
 import { cn } from "@/lib/utils";
+import { navItems, otherItems } from "@/data/sidebar";
 
-interface NavItem {
-  icon: any;
-  label: string;
-  href: string;
-  type?: "client" | "admin" | "candidate";
-  children?: NavItem[];
-}
+
 
 interface SidebarProps {
   isOpen: boolean;
@@ -33,90 +28,7 @@ interface SidebarProps {
   onToggleCollapse?: () => void;
 }
 
-const navItems: NavItem[] = [
-  {
-    icon: OverviewIcon,
-    label: "Overview",
-    href: "/dashboard",
-    type: "admin",
-  },
-  {
-    icon: VendorsIcon,
-    label: "Vendors",
-    href: "/vendors",
-    type: "admin",
-    children: [
-      {
-        label: "All Vendors",
-        href: "/dashboard/vendors",
-        icon: EventPlannersIcon
-      },
-      {
-        label: "Pending Requests",
-        href: "/dashboard/vendors/pending-requests",
-        icon: PendingApprovalIcon
-      }
-    ]
-  },
 
-  {
-    icon: EventPlannersIcon,
-    label: "Event Planners",
-    href: "/event-planners",
-    type: "admin",
-    children: [
-      {
-        label: "All Event Planners",
-        href: "/dashboard/event-planners",
-        icon: EventPlannersIcon
-      },
-      {
-        label: "Pending Requests",
-        href: "/dashboard/event-planners/pending-requests",
-        icon: PendingApprovalIcon
-      }
-    ]
-  },
-  {
-    icon: BookingIcon,
-    label: "Bookings",
-    href: "/bookings",
-    type: "admin",
-  },
-  {
-    icon: TransactionsIcon,
-    label: "Transactions",
-    href: "/transactions",
-    type: "admin",
-  },
-  {
-    icon: ServicesIcon,
-    label: "Services",
-    href: "/services",
-    type: "admin",
-  }
-];
-
-const otherItems = [
-  {
-    icon: SettingIcon,
-    label: "Settings",
-    href: "/settings",
-    type: "admin",
-  },
-  {
-    icon: PrivacyPolicyIcon,
-    label: "Privacy Policy",
-    href: "/privacy-policy",
-    type: "admin",
-  },
-  {
-    icon: LogoutIcon,
-    label: "Logout",
-    href: "/logout",
-    type: "admin",
-  }
-]
 
 const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
   const pathname = usePathname();
