@@ -6,7 +6,7 @@ import DynamicTable from "@/components/reusable/DynamicTable";
 import { searchLocally } from "@/helper/searchLocally";
 import { usePagination } from "@/hooks";
 import { eventPlannersData } from "@/data/events";
-import { EVENT_PLANNERS_COLUMNS, EVENT_TYPE_OPTIONS } from "./tableConfig";
+import { EVENT_PLANNERS_COLUMNS, EVENT_TYPE_OPTIONS, PLAN_OPTIONS, STATUS_OPTIONS } from "./tableConfig";
 
 const EventPlannersPageContent = () => {
     const [filteredData, setFilteredData] = useState(eventPlannersData);
@@ -65,25 +65,15 @@ const EventPlannersPageContent = () => {
                 onStatusChange={(val) => applyFilters({ subscription: val })}
                 onPlanChange={(val) => applyFilters({ plans: val })}
                 categoryValue={filters.category}
-                allCategories
-                allStatus
-                allPlans
                 statusValue={filters.subscription}
                 planValue={filters.plans}
                 searchData={eventPlannersData}
                 options={EVENT_TYPE_OPTIONS}
-                statusOptions={[
-                    { label: "All Status", value: "all" },
-                    { label: "Monthly", value: "Monthly" },
-                    { label: "Yearly", value: "Yearly" },
-                ]}
-                planOptions={[
-                    { label: "All Plans", value: "all" },
-                    { label: "Home", value: "Home" },
-                    { label: "Location", value: "Location" }, {
-                        label: "Mobile", value: "Mobile"
-                    }, { label: "On site", value: "on-site" }
-                ]}
+                statusOptions={STATUS_OPTIONS}
+                planOptions={PLAN_OPTIONS}
+                allCategories
+                allStatus
+                allPlans
             />
 
             <div className="mt-5">

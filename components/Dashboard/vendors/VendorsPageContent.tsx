@@ -27,7 +27,7 @@ const VendorsPageContent = () => {
   } = usePagination({
     data: filteredData,
     itemsPerPage: itemsPerPage,
-    resetDeps: [filters], // Reset to page 1 when filters change
+    resetDeps: [filters], 
   });
 
   const applyFilters = (newFilters: any) => {
@@ -44,10 +44,6 @@ const VendorsPageContent = () => {
       data = data.filter((v) => v.category === updated.category);
     }
 
-    // if (updated.subscription !== "all") {
-    //     data = data.filter((v) => v.subscription.toLowerCase() === updated.subscription.toLowerCase());
-    // }
-
     setFilteredData(data);
   };
 
@@ -60,9 +56,7 @@ const VendorsPageContent = () => {
         allCategories
         searchData={vendors}
         options={VENDOR_CATEGORY_OPTIONS}
-      // allStatus
-      // statusValue={filters.subscription}
-      // onStatusChange={(val) => applyFilters({ subscription: val })}
+      
       />
 
       <div className="mt-5">
