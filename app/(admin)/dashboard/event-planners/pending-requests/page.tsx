@@ -6,7 +6,7 @@ import React from 'react'
 const PendingRequest = () => {
     return (
         <div>
-            <div className='flex items-start gap-2.5 bg-[#F6F3FF] p-3 rounded-xl'>
+            <div className='flex items-start gap-2.5 bg-[#F6F3FF] p-3 rounded-xl border-[0.5px] border-[#EAE3FB]'>
                 <div className='mt-1'>
                     <FailedIcon className='text-purpleOne' />
                 </div>

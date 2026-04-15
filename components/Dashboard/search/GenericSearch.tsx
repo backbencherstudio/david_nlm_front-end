@@ -99,6 +99,9 @@ function GenericSearchInner<T extends SearchResult>(
         item.plannerName?.name ||
         item.info?.eventName ||
         item.customer ||
+        item.payerName ||
+        item.payeeName ||
+        item.transactionId ||
         item.label ||
         String(item.id);
 

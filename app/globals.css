@@ -46,6 +46,9 @@
   --color-refundBorder: var(--refundBorder);
   --color-refundBg: var(--refundBg);
   --color-refundText: var(--refundText);
+  --color-failedBorder: var(--failedBorder);
+  --color-failedBg: var(--failedBg);
+  --color-failedText: var(--failedText);
   /* ======== */
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -115,6 +118,9 @@
   --refundBorder: #A7C4EA;
   --refundBg: #D3E5F4;
   --refundText: #112C65;
+  --failedBorder: #F7B1B8;
+  --failedBg: #FBD8DB;
+  --failedText: #761F27;
 
   /* ========== */
   --radius: 0.625rem;

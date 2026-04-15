@@ -4,7 +4,6 @@
 export function searchLocally<T>(query: string, data: T[]) {
   const q = query.toLowerCase();
   return data.filter((item: any) => {
-    // Search in all string or number properties, including nested ones
     const searchInObject = (obj: any): boolean => {
       return Object.values(obj).some((value) => {
         if (typeof value === "string") {
@@ -21,4 +20,4 @@ export function searchLocally<T>(query: string, data: T[]) {
     };
     return searchInObject(item);
   });
-}
+}

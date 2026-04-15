@@ -63,13 +63,13 @@ export const navItems: NavItem[] = [
     {
         icon: TransactionsIcon,
         label: "Transactions",
-        href: "/transactions",
+        href: "/dashboard/transactions",
         type: "admin",
     },
     {
         icon: ServicesIcon,
         label: "Services",
-        href: "/services",
+        href: "/dashboard/services",
         type: "admin",
     }
 ];

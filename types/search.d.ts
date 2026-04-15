@@ -28,6 +28,9 @@ export interface SearchResult {
     joinedDate: string;
   }
   customer?: string;
+  payerName?: string;
+  payeeName?: string;
+  transactionId?: string;
 }
 
 export type SearchStatus = "idle" | "loading" | "success" | "error";

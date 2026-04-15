@@ -42,6 +42,7 @@ const BookingsPageContent = () => {
 
         setFilteredData(data);
     }
+    
     return (
         <div>
 
