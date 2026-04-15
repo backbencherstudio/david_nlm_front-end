@@ -2,7 +2,7 @@
 
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { MdNotifications } from "react-icons/md";
@@ -21,6 +21,7 @@ import { SearchResult } from "@/types";
 import { GenericSearch } from "../Dashboard/search/GenericSearch";
 import ChevronDownIcon from "@/icons/ChevronDownIcon";
 import { PAGE_LINKS } from "@/data/nav";
+import { useHeaderHeading } from "@/hooks/useHeaderHeading";
 
 interface HeaderProps {
   onNotificationClick?: () => void;
@@ -47,6 +48,8 @@ const Header: React.FC<HeaderProps> = ({
   const [popoverOpen, setPopoverOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const path = usePathname();
+  const { heading, description } = useHeaderHeading({ path });
 
   return (
     <nav className="  bg-grayBg p-5">
@@ -70,8 +73,8 @@ const Header: React.FC<HeaderProps> = ({
         {/* Notification and Profile Group */}
         <div className="flex items-center gap-2 lg:gap-6 justify-between w-full">
           <div className=" lg:block">
-            <p className="text-descriptionColor leading-[160%] hidden xl:block">Good morning</p>
-            <h2 className="text-blackColor font-medium text-2xl">Welcome back</h2>
+            <h2 className="text-blackColor font-medium text-2xl">{heading}</h2>
+            <p className="text-descriptionColor leading-[160%] hidden xl:block">{description}</p>
           </div>
 
           <div className="flex items-center gap-2 lg:gap-5 justify-between">
