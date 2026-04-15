@@ -1,9 +1,7 @@
-import React from 'react'
+import ServicesPageContent from "@/components/Dashboard/services/ServicesPageContent";
 
 const ServicesPage = () => {
-  return (
-    <div>ServicesPage</div>
-  )
-}
+  return <ServicesPageContent />;
+};
 
-export default ServicesPage
+export default ServicesPage;
