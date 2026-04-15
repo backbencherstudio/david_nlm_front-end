@@ -14,6 +14,10 @@ export interface SearchResult {
   location: string;
   subscription: string;
   totalBookings: number;
+  label?: string;
+  description?: string;
+  icon?:React.ReactNode;
+  _isRecent?:boolean
 }
 
 export type SearchStatus = "idle" | "loading" | "success" | "error";

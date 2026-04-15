@@ -20,6 +20,7 @@ import BlueDot from "@/icons/BlueDot";
 import { SearchResult } from "@/types";
 import { GenericSearch } from "../Dashboard/search/GenericSearch";
 import ChevronDownIcon from "@/icons/ChevronDownIcon";
+import { PAGE_LINKS } from "@/data/nav";
 
 interface HeaderProps {
   onNotificationClick?: () => void;
@@ -29,20 +30,12 @@ interface HeaderProps {
 }
 
 
-const COUNTRIES: SearchResult[] = [
-  { id: "us", label: "United States", description: "North America" },
-  { id: "uk", label: "United Kingdom", description: "Europe" },
-  { id: "de", label: "Germany", description: "Europe" },
-  { id: "jp", label: "Japan", description: "Asia" },
-  { id: "au", label: "Australia", description: "Oceania" },
-];
-
-function searchLocally(query: string): SearchResult[] {
+function searchNavigation(query: string) {
   const q = query.toLowerCase();
-  return COUNTRIES.filter(
-    (c) =>
-      c.label.toLowerCase().includes(q) ||
-      (c.description ?? "").toLowerCase().includes(q)
+  return PAGE_LINKS.filter(
+    (item) =>
+      item.label.toLowerCase().includes(q) ||
+      item.description.toLowerCase().includes(q)
   );
 }
 
@@ -85,9 +78,13 @@ const Header: React.FC<HeaderProps> = ({
 
             <div className="hidden md:block w-full">
               <GenericSearch
-                onSearch={searchLocally}
-                onSelect={(c) => console.log(c.label)}
-                placeholder="Search"
+                onSearch={searchNavigation as any}
+                onSelect={(item: any) => {
+                  if (item && item.id) {
+                    router.push(item.id);
+                  }
+                }}
+                placeholder="Search pages and settings..."
                 debounceMs={0}
                 minChars={1}
                 size="lg"
@@ -146,7 +143,7 @@ const Header: React.FC<HeaderProps> = ({
 
 
                     <button className=" cursor-pointer">
-                     <ChevronDownIcon purple/>
+                      <ChevronDownIcon purple />
                     </button>
                   </div>
                 </DropdownMenuTrigger>
