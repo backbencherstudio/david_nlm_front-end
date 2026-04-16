@@ -23,6 +23,8 @@ import ChevronDownIcon from "@/icons/ChevronDownIcon";
 import { PAGE_LINKS } from "@/data/nav";
 import { useHeaderHeading } from "@/hooks/useHeaderHeading";
 import GenericButton from "../Dashboard/auth/GenericButton";
+import { useModal } from "@/hooks";
+import CreateServiceModal from "../Dashboard/services/CreateServiceModal";
 
 interface HeaderProps {
   onNotificationClick?: () => void;
@@ -51,6 +53,7 @@ const Header: React.FC<HeaderProps> = ({
   const { heading, description } = useHeaderHeading({ path });
   const isOverView = path === "/dashboard";
   const isServices = path === "/dashboard/services";
+  const { isOpen, openModal, closeModal, toggleModal } = useModal();
 
   return (
     <nav className="  bg-grayBg p-5">
@@ -97,7 +100,12 @@ const Header: React.FC<HeaderProps> = ({
                 />
               )}
               {isServices && (
-                <GenericButton variant="primary" size="xlg" icon={<PlusIcon />}>
+                <GenericButton
+                  variant="primary"
+                  size="xlg"
+                  icon={<PlusIcon />}
+                  onClick={openModal}
+                >
                   Create new Service
                 </GenericButton>
               )}
@@ -191,6 +199,8 @@ const Header: React.FC<HeaderProps> = ({
           minChars={1}
         />
       </div> */}
+
+      {isOpen && <CreateServiceModal closeModal={closeModal} />}
     </nav>
   );
 };

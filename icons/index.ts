@@ -10,3 +10,9 @@ export { default as PrivacyPolicyIcon } from "@/icons/PrivacyPolicyIcon";
 export { default as LogoutIcon } from "@/icons/LogoutIcon";
 export { default as ChevronDownIcon } from "@/icons/ChevronDownIcon";
 export { default as WarningIcon } from "@/icons/WarningIcon";
+export { Spinner } from "@/icons/Spinner";
+export { default as EyeIcon } from "@/icons/EyeIcon";
+export {  EyeOffIcon } from "@/icons/EyeOffIcon";
+export {XIcon} from "@/icons/XIcon"
+export {ErrorIcon} from "@/icons/ErrorIcon"
+export {SuccessIcon} from "@/icons/SuccessIcon"
