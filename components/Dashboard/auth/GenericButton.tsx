@@ -117,7 +117,6 @@ export const GenericButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
       disabled,
       children,
       className,
-
       onClick,
       ...rest
     },

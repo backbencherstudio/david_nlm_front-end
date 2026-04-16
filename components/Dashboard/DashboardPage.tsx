@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import StatCards from "./StateCards";
 import DashboardUserTable from "./DashboardUserTable";
@@ -11,9 +11,7 @@ import ReveneuOverview from "./overview/ReveneuOverview";
 import TodaysBooking from "./todays-booking/TodaysBooking";
 import NewSubscription from "./new-subscription/NewSubscription";
 import QuickActions from "./quick-actions/QuickActions";
-
-
-
+import WarningComponent from "./common/WarningComponent";
 
 function DashboardPage() {
   const statCards = [
@@ -41,7 +39,6 @@ function DashboardPage() {
       percentage: "72.6%",
       icon: <DollarIcon />,
     },
-
   ];
   return (
     <div className="flex flex-col justify-between h-full">
@@ -50,17 +47,13 @@ function DashboardPage() {
           <h3 className="text-lg md:text-xl font-bold text-blackColor leading-[130%]">
             Dashboard Overview
           </h3>
-          <p className="text-sm text-descriptionColor leading-[160%]">Monitor your platform performance and manage operations</p>
+          <p className="text-sm text-descriptionColor leading-[160%]">
+            Monitor your platform performance and manage operations
+          </p>
         </div>
 
         {/* warning */}
-        <div className="flex items-start gap-2.5 bg-warningBg p-3 rounded-xl border-[0.5px] border-warningBorder">
-          <div className="pt-1"><WarningIcon /></div>
-          <div className="space-y-1">
-            <h3 className="text-[#1D1F2C] text-sm font-medium leading-[160%]">11 pending requests require your attention</h3>
-            <p className="text-grayColor1 text-xs leading-[160%]">8 vendor applications and 3 event planner applications are awaiting review.</p>
-          </div>
-        </div>
+        <WarningComponent />
 
         <StatCards statCards={statCards} />
       </div>
