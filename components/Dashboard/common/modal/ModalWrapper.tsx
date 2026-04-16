@@ -53,7 +53,7 @@ const ModalWrapper = ({
       onClick={(e) =>
         closeOnBackdrop && e.target === overlayRef.current && onClose()
       }
-      className="fixed inset-0 z-50 overflow-y-auto backdrop-blur-sm"
+      className="fixed inset-0 z-50 overflow-y-auto  bg-black/30"
     >
       <div className="min-h-full flex items-center justify-center p-4 md:p-8">
         <div
