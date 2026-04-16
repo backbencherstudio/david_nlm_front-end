@@ -4,8 +4,6 @@ import { Menu, PlusIcon, X } from "lucide-react";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import React, { useState } from "react";
-import { IoIosArrowDown } from "react-icons/io";
-import { MdNotifications } from "react-icons/md";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,10 +12,8 @@ import {
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
-import Search from "./Search";
 import NotificationIcon from "@/icons/NotificationIcon";
 import BlueDot from "@/icons/BlueDot";
-import { SearchResult } from "@/types";
 import { GenericSearch } from "../Dashboard/search/GenericSearch";
 import ChevronDownIcon from "@/icons/ChevronDownIcon";
 import { PAGE_LINKS } from "@/data/nav";
@@ -25,6 +21,7 @@ import { useHeaderHeading } from "@/hooks/useHeaderHeading";
 import GenericButton from "../Dashboard/auth/GenericButton";
 import { useModal } from "@/hooks";
 import CreateServiceModal from "../Dashboard/services/CreateServiceModal";
+import { LogoutIcon } from "@/icons";
 
 interface HeaderProps {
   onNotificationClick?: () => void;
@@ -47,13 +44,18 @@ const Header: React.FC<HeaderProps> = ({
   sidebarOpen,
 }: HeaderProps) => {
   const [popoverOpen, setPopoverOpen] = useState(false);
-  const [loading, setLoading] = useState(false);
   const router = useRouter();
   const path = usePathname();
   const { heading, description } = useHeaderHeading({ path });
   const isOverView = path === "/dashboard";
   const isServices = path === "/dashboard/services";
   const { isOpen, openModal, closeModal, toggleModal } = useModal();
+  const {
+    isOpen: isProfileOpen,
+    openModal: openProfileModal,
+    closeModal: closeProfileModal,
+    toggleModal: toggleProfileModal,
+  } = useModal();
 
   return (
     <nav className="  bg-grayBg p-5">
@@ -149,7 +151,10 @@ const Header: React.FC<HeaderProps> = ({
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <div className="flex gap-3 h-full items-center cursor-pointer">
-                    <div className=" w-9 h-9  rounded-full overflow-hidden">
+                    <div
+                      onClick={openProfileModal}
+                      className=" w-9 h-9  rounded-full overflow-hidden"
+                    >
                       <Image
                         src={"/vendly_profile.jpg"}
                         alt="Admin Avatar"
@@ -165,24 +170,42 @@ const Header: React.FC<HeaderProps> = ({
                   </div>
                 </DropdownMenuTrigger>
 
-                <DropdownMenuContent align="end" className="w-48">
-                  <div className="px-4 py-2">
-                    <p className="text-sm font-semibold text-headerColor">
-                      {"User"}
-                    </p>
-                    <p className="text-xs text-textColor">
-                      {"admin@company.com"}
-                    </p>
+                <DropdownMenuContent align="end" className="w-56">
+                  <div className="p-3 py-2 bg-grayBg rounded-lg space-y-4">
+                    <div className=" flex items-center gap-2 ">
+                      <div className="w-9 h-9">
+                        <Image
+                          src="/vendly_profile.jpg"
+                          alt="profile"
+                          width={36}
+                          height={36}
+                          className="rounded-full w-full h-full"
+                        />
+                      </div>
+                      <div>
+                        <h2 className="text-sm font-medium text-blackColor leading-[160%] ">
+                          David Smith
+                        </h2>
+                        <p className="text-descriptionColor leading-[160%] text-xs">
+                          davidsmith@gmail.com
+                        </p>
+                      </div>
+                    </div>
+                    <GenericButton variant="primary" size="md" fullWidth>
+                      Edit Profile
+                    </GenericButton>
                   </div>
+
                   <DropdownMenuSeparator />
 
                   <DropdownMenuItem
                     onClick={() => {
                       router.push("/login");
                     }}
-                    className="text-redColor hover:bg-redColor/10! flex justify-center w-full hover:text-redColor! hover:border hover:border-redColor font-semibold cursor-pointer"
+                    className=" hover:bg-redColor/10! flex  w-full hover:text-redColor! hover:border hover:border-redColor font-semibold cursor-pointer"
                   >
-                    Log Out
+                    <LogoutIcon color="#EB3D4D" />
+                    <span className="text-redColor"> Log Out</span>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
