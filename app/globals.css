@@ -354,3 +354,10 @@ input:checked~.checkmark {
   background: var(--si-border);
   border-radius: 2px;
 }
+
+.logout-icon-wrapper {
+  border-radius: var(--rad-full, 999px);
+  border: 5px solid var(--Error-Red-100, #FBD8DB);
+  background: var(--Error-Red-500, #EB3D4D);
+  box-shadow: 0 0 0 6px rgba(251, 216, 219, 0.30);
+}

@@ -7,9 +7,10 @@ import React, { useState } from "react";
 import SiteLogo from "../landing-page/SiteLogo";
 import { SidebarIcon } from "@/icons";
 import { ChevronDown } from "lucide-react";
-import { useActiveNav } from "@/hooks";
+import { useActiveNav, useModal } from "@/hooks";
 import { cn } from "@/lib/utils";
 import { navItems, otherItems } from "@/data/sidebar";
+import LogoutModal from "../Dashboard/auth/LogoutModal";
 
 interface SidebarProps {
   isOpen: boolean;
@@ -19,9 +20,9 @@ interface SidebarProps {
 }
 
 const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
-  const pathname = usePathname();
   const router = useRouter();
   const { isActive } = useActiveNav();
+  const { isOpen: isModalOpen, openModal, closeModal } = useModal();
 
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
@@ -169,6 +170,39 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
             </h3>
             {otherItems.map((item, idx) => {
               const active = isActive(item.href, false);
+
+              if (item.label === "Logout") {
+                return (
+                  <button
+                    key={idx}
+                    onClick={() => openModal()}
+                    className={`
+                      w-full flex items-center group gap-3 px-3 py-2.5 lg:py-3 rounded-lg 
+                      transition-all duration-200
+                       ${active ? "gradient-bg opacity-100 text-white" : ""}
+                    `}
+                    title={isCollapsed ? item.label : ""}
+                  >
+                    <div className="flex gap-2 items-center">
+                      <div
+                        className={`w-[30px] h-[30px] group flex justify-center items-center flex-shrink-0 text-xl font-medium ${active ? "text-white" : "text-blackColor"}`}
+                      >
+                        <item.icon />
+                      </div>
+                      <span
+                        className={`text-base font-medium whitespace-nowrap ${
+                          active
+                            ? "text-white"
+                            : "text-descriptionColor hover:text-purpleOne"
+                        }`}
+                      >
+                        {item.label}
+                      </span>
+                    </div>
+                  </button>
+                );
+              }
+
               return (
                 <Link
                   key={idx}
@@ -176,7 +210,7 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
                   onClick={onClose}
                   className={`
                   flex items-center group gap-3 px-3 py-2.5 lg:py-3 rounded-lg 
-                  hover:text-whiteColor hover:bg-whiteColor transition-all duration-200
+                  transition-all duration-200
                    ${active ? "gradient-bg opacity-100 text-white" : ""}
                  
                 `}
@@ -186,10 +220,7 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
                     <div
                       className={`w-[30px] h-[30px] group  flex justify-center items-center flex-shrink-0 text-xl font-medium ${active ? "text-white" : "text-blackColor"}`}
                     >
-                      <item.icon
-                      // className={`opacity-70 group-hover:opacity-100 transition-opacity duration-200 ${active ? "opacity-100" : ""
-                      //   }`}
-                      />
+                      <item.icon />
                     </div>
                     <span
                       className={`text-base font-medium text-blackColor transition-colors duration-200 whitespace-nowrap ${active ? "text-white" : ""}`}
@@ -200,6 +231,11 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
                 </Link>
               );
             })}
+            <LogoutModal
+              isOpen={isModalOpen}
+              onClose={closeModal}
+              onConfirm={handleLogout}
+            />
           </div>
         </div>
       </div>
