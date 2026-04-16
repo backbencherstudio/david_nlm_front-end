@@ -93,7 +93,7 @@ export const otherItems = [
   {
     icon: PrivacyPolicyIcon,
     label: "Privacy Policy",
-    href: "/dashboard/privacy-policy",
+    href: "/dashboard/privacy",
     type: "admin",
   },
   {
