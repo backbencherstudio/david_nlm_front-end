@@ -150,7 +150,7 @@ const Header: React.FC<HeaderProps> = ({
 
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <div className="flex gap-3 h-full items-center cursor-pointer">
+                  <div className="flex gap-2 h-full items-center cursor-pointer bg-white rounded-lg px-3 py-2 border-[0.5px] border-borderColor">
                     <div
                       onClick={openProfileModal}
                       className=" w-9 h-9  rounded-full overflow-hidden"
@@ -162,6 +162,15 @@ const Header: React.FC<HeaderProps> = ({
                         height={36}
                         className="rounded-full w-full h-full"
                       />
+                    </div>
+
+                    <div>
+                      <h2 className="text-sm font-medium text-blackColor leading-[160%] ">
+                        David Smith
+                      </h2>
+                      <p className="text-descriptionColor leading-[160%] text-xs">
+                        davidsmith@gmail.com
+                      </p>
                     </div>
 
                     <button className=" cursor-pointer">
