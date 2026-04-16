@@ -38,7 +38,6 @@ const SettingPageContent = () => {
           { value: "fixed", label: "Fixed Amount" },
         ]}
         borderRadius="rounded-full"
-        height="h-12!"
       />
        <GenericSelect
         label="Booking Fee Type"

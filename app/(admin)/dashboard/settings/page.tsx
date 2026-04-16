@@ -1,5 +1,6 @@
 import GenericButton from "@/components/Dashboard/auth/GenericButton";
 import WarningComponent from "@/components/Dashboard/common/WarningComponent";
+import SettingActions from "@/components/Dashboard/setting/SettingActions";
 import SettingPageContent from "@/components/Dashboard/setting/SettingPageContent";
 import React from "react";
 
@@ -18,11 +19,7 @@ const SettingsPage = () => {
         </div>
         <SettingPageContent />
       </div>
-      <div className="flex justify-end">
-        <GenericButton variant="primary" rounded="full" size="xll" className="w-xs">
-          Save Platform Settings
-        </GenericButton>
-      </div>
+      <SettingActions />
     </div>
   );
 };
