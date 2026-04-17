@@ -1,11 +1,7 @@
 import DashboardPage from "@/components/Dashboard/DashboardPage";
 
 function page() {
-  return (
-    <div>
-      <DashboardPage />
-    </div>
-  );
+  return <DashboardPage />;
 }
 
 export default page;

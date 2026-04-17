@@ -66,7 +66,7 @@ export default function DynamicTable({
       <div className={`rounded-t-md ${border ? "border border-gray-200" : ""}`}>
         <div className={` overflow-auto bg-white ${border ? "p-2" : ""}`}>
           <table
-            className={`min-w-[1000px] w-full text-left bg-whiteColor  ${border ? "p-2" : ""}`}
+            className={`min-w-[1000px] table-fixed w-full text-left bg-whiteColor  ${border ? "p-2" : ""}`}
           >
             <thead className="sticky top-0 text-blackColor rounded-md! overflow-hidden  p-2">
               <tr className="">
@@ -86,7 +86,7 @@ export default function DynamicTable({
                   )
                 })}
                 {(onView || onDelete) && (
-                  <th>
+                  <th className="w-[100px]">
                     <div className="px-4! bg-tableHeaderBg  py-5! text-sm font-medium border-b rounded-tr-md ">
                       Action
                     </div>
@@ -115,7 +115,7 @@ export default function DynamicTable({
                         <td
                           key={col.accessor}
                           style={{ width: resolvedWidth(col.width) || "auto" }}
-                          className="px-4 py-3 text-sm font-medium text-blackColor leading-[160%]"
+                          className="px-4 py-3 text-sm font-medium text-blackColor leading-[160%] whitespace-nowrap"
                         >
                           {col.formatter
                             ? col.formatter(
