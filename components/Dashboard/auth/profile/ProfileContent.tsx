@@ -30,18 +30,19 @@ const ProfileContent = () => {
           {/* Image + Upload */}
           <div className="flex flex-col sm:flex-row gap-4 mt-2">
             {/* Image */}
-            <div className="relative shrink-0 mx-auto sm:mx-0">
+            <div className=" relative shrink-0 mx-auto sm:mx-0 w-20 h-20">
               <Image
                 src={"/profile.png"}
                 alt="profile"
                 width={100}
                 height={100}
-                className="w-20 h-20 rounded-full object-cover"
+                className="w-20 h-20  rounded-full object-cover"
               />
 
               <button
                 type="button"
-                className="bg-[#EB3D4D] w-8 h-8 rounded-full flex items-center justify-center border-[1.5px] border-white absolute bottom-0 right-0"
+                className="bg-[#EB3D4D] w-8 h-8 rounded-full flex items-center 
+                justify-center border-[1.5px] border-white absolute bottom-0 right-0 translate-x-1/4 translate-y-1/4"
               >
                 <TrashIcon />
               </button>
@@ -87,9 +88,8 @@ const ProfileContent = () => {
       {/* Divider */}
       <hr className="hidden md:block border-borderColor mt-6" />
 
-
       {/* Button */}
-      <div className="flex flex-col sm:flex-row sm:justify-end gap-3 mt-4 sm:mt-15">
+      <div className="flex flex-col sm:flex-row sm:justify-end gap-3 my-4 sm:mt-15">
         <GenericButton variant="primary" className="w-full sm:w-auto">
           Save Changes
         </GenericButton>
