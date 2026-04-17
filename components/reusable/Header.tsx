@@ -88,7 +88,7 @@ const Header: React.FC<HeaderProps> = ({
         {/* Notification and Profile Group */}
         <div className="flex items-center gap-2 lg:gap-6 justify-between w-full">
           <div className=" lg:block">
-            <h2 className="text-blackColor font-medium text-2xl">{heading}</h2>
+            <h2 className="text-blackColor font-medium text-xl md:text-2xl line-clamp-1">{heading}</h2>
             <p className="text-descriptionColor leading-[160%] hidden xl:block">
               {description}
             </p>

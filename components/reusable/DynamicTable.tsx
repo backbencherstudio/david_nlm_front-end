@@ -115,7 +115,7 @@ export default function DynamicTable({
                         <td
                           key={col.accessor}
                           style={{ width: resolvedWidth(col.width) || "auto" }}
-                          className="px-4 py-3 text-sm font-medium text-blackColor leading-[160%] whitespace-nowrap"
+                          className="px-4 py-3 text-sm font-medium text-blackColor leading-[160%]"
                         >
                           {col.formatter
                             ? col.formatter(
