@@ -7,6 +7,7 @@ import ProfileIcon from "@/icons/ProfileIcon";
 import SecurityIcon from "@/icons/SecurityIcon";
 import ProfileContent from "./ProfileContent";
 import { LogoutIcon } from "@/icons";
+import SecurityPrivacyContent from "./SecurityPrivacyContent";
 
 const ProfileSettingTabs = [
   {
@@ -28,13 +29,10 @@ const ProfileSettingModal = ({ onClose }: { onClose: () => void }) => {
 
   return (
     <ModalWrapper isOpen={true} onClose={onClose} size="full">
-      
       {/* IMPORTANT: give height */}
       <ModalBody className="flex flex-col md:flex-row gap-4 h-full">
-        
         {/* Sidebar */}
         <div className="bg-grayBg p-3 md:p-5 rounded-lg flex flex-col w-full md:w-[260px]">
-          
           {/* Header */}
           <h2 className="text-blackColor text-lg md:text-xl font-semibold mb-3 md:mb-6">
             Profile Setting
@@ -42,7 +40,6 @@ const ProfileSettingModal = ({ onClose }: { onClose: () => void }) => {
 
           {/* Tabs + Bottom Layout */}
           <div className="flex flex-col h-full">
-            
             {/* Tabs */}
             <div className="flex flex-row md:flex-col gap-2 border-0 md:border-b border-borderColor pb-2">
               {ProfileSettingTabs.map((item) => {
@@ -62,9 +59,7 @@ const ProfileSettingModal = ({ onClose }: { onClose: () => void }) => {
                     `}
                   >
                     <item.icon />
-                    <span className="text-sm font-medium">
-                      {item.label}
-                    </span>
+                    <span className="text-sm font-medium">{item.label}</span>
                   </div>
                 );
               })}
@@ -79,18 +74,14 @@ const ProfileSettingModal = ({ onClose }: { onClose: () => void }) => {
                 </span>
               </div>
             </div>
-
           </div>
         </div>
 
         {/* Content Area */}
         <div className="flex-1 min-w-0">
           {activeTab === "profile" && <ProfileContent />}
-          {activeTab === "security" && (
-            <div className="p-4">Security Content Here</div>
-          )}
+          {activeTab === "security" && <SecurityPrivacyContent />}
         </div>
-
       </ModalBody>
     </ModalWrapper>
   );

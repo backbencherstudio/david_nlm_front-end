@@ -12,8 +12,12 @@ export { default as ChevronDownIcon } from "@/icons/ChevronDownIcon";
 export { default as WarningIcon } from "@/icons/WarningIcon";
 export { Spinner } from "@/icons/Spinner";
 export { default as EyeIcon } from "@/icons/EyeIcon";
-export {  EyeOffIcon } from "@/icons/EyeOffIcon";
-export {XIcon} from "@/icons/XIcon"
-export {ErrorIcon} from "@/icons/ErrorIcon"
-export {SuccessIcon} from "@/icons/SuccessIcon";
-export {default as UploadIcon} from "@/icons/UploadIcon";
+export { EyeOffIcon } from "@/icons/EyeOffIcon";
+export { XIcon } from "@/icons/XIcon";
+export { ErrorIcon } from "@/icons/ErrorIcon";
+export { SuccessIcon } from "@/icons/SuccessIcon";
+export { default as UploadIcon } from "@/icons/UploadIcon";
+export { default as FingerIcon } from "@/icons/FingerIcon";
+export { default as MacIcon } from "@/icons/MacIcon";
+export { default as ChangePassIcon } from "@/icons/ChangePassIcon";
+export { default as TrashTwo } from "@/icons/TrashTwo";
