@@ -35,12 +35,10 @@ export const HighlightedText = memo(function HighlightedText({
 });
 
 // Icons
-export const SearchIcon = memo(function SearchIcon() {
+export const SearchIcon = memo(function SearchIcon({ className }: { className?: string }) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="22"
-            height="22"
             viewBox="0 0 24 24"
             fill="none"
             stroke="#4A4C56"
@@ -48,6 +46,7 @@ export const SearchIcon = memo(function SearchIcon() {
             strokeLinecap="round"
             strokeLinejoin="round"
             aria-hidden="true"
+            className={className}
         >
             <circle cx="11" cy="11" r="8" />
             <path d="m21 21-4.35-4.35" />

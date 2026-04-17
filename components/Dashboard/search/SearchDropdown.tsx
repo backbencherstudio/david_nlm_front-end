@@ -180,7 +180,7 @@ function ResultItem<T extends SearchResult>({
                 "transition-colors duration-75",
                 isActive
                     ? "bg-[var(--si-active-bg)]"
-                    : "hover:bg-[var(--si-hover-bg)]"
+                    : "hover:bg-gray-100"
             )}
         >
             {item.icon && (

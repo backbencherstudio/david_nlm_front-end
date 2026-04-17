@@ -2,12 +2,35 @@ import type React from "react";
 
 export interface SearchResult {
   id: string | number;
-  label: string;
+  key: string;
+  vendorName: {
+    name: string;
+    image: string;
+    joinedDate: string;
+  };
+  category: string;
+  subcategory: string;
+  operatedService: string;
+  location: string;
+  subscription: string;
+  totalBookings: number;
+  label?: string;
   description?: string;
-  group?: string;
   icon?: React.ReactNode;
-  metadata?: Record<string, unknown>;
-  [key: string]: unknown;
+  _isRecent?: boolean
+  info?: {
+    eventName: string;
+    date: string;
+  }
+  plannerName: {
+    name: string;
+    image: string;
+    joinedDate: string;
+  }
+  customer?: string;
+  payerName?: string;
+  payeeName?: string;
+  transactionId?: string;
 }
 
 export type SearchStatus = "idle" | "loading" | "success" | "error";
@@ -60,6 +83,7 @@ export interface GenericSearchProps<T extends SearchResult = SearchResult> {
   className?: string;
   inputClassName?: string;
   dropdownClassName?: string;
+  size?: "sm" | "md" | "lg";
 
   // Accessibility
   "aria-label"?: string;

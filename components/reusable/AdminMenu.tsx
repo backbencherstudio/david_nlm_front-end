@@ -33,13 +33,13 @@ function AdminMenu({ children }: { children: React.ReactNode }) {
           />
         )}
 
-        <div className="flex-1 w-full h-full flex flex-col min-h-0">
+        <div className="flex-1 h-full flex flex-col min-w-0 min-h-0 ">
           <div className="w-full sticky top-0 left-0 z-10">
             <Header sidebarOpen={sidebarOpen} onMenuClick={toggleSidebar} />
           </div>
 
           {/* Main content area */}
-          <main className="flex-1 overflow-y-auto overflow-x-hidden text-headerColor p-3 lg:p-6">
+          <main className="flex-1 overflow-y-auto overflow-x-hidden text-headerColor p-3 lg:p-5 min-w-0">
             {children}
             <ToastContainer />
           </main>
