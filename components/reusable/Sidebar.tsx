@@ -178,7 +178,7 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
                     onClick={() => openModal()}
                     className={`
                       w-full flex items-center group gap-3 px-3 py-2.5 lg:py-3 rounded-lg 
-                      transition-all duration-200
+                      transition-all duration-200 cursor-pointer
                        ${active ? "gradient-bg opacity-100 text-white" : ""}
                     `}
                     title={isCollapsed ? item.label : ""}
@@ -223,7 +223,7 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
                       <item.icon />
                     </div>
                     <span
-                      className={`text-base font-medium text-blackColor transition-colors duration-200 whitespace-nowrap ${active ? "text-white" : ""}`}
+                      className={`text-base font-medium text-descriptionColor transition-colors duration-200 whitespace-nowrap ${active ? "text-white" : ""}`}
                     >
                       {item.label}
                     </span>

@@ -67,7 +67,7 @@ const Header: React.FC<HeaderProps> = ({
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
 
   return (
-    <nav className="  bg-grayBg p-5">
+    <nav className="bg-grayBg p-3 xl:p-5">
       <div className="relative flex justify-between w-full mb-1 z-50">
         {/* Mobile menu button */}
         <div>
@@ -159,7 +159,7 @@ const Header: React.FC<HeaderProps> = ({
 
               <DropdownMenu open={isProfileDropdownOpen} onOpenChange={setIsProfileDropdownOpen}>
                 <DropdownMenuTrigger asChild>
-                  <div className="flex gap-2 h-full items-center cursor-pointer bg-white rounded-lg px-3 py-2 border-[0.5px] border-borderColor">
+                  <div className="flex gap-2 h-full items-center cursor-pointer md:bg-white rounded-lg md:px-3 md:py-2 md:border-[0.5px] border-borderColor">
                     <div className=" w-9 h-9  rounded-full overflow-hidden">
                       <Image
                         src={"/vendly_profile.jpg"}

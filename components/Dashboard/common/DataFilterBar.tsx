@@ -118,6 +118,7 @@ const DataFilterBar = ({
             dropdownShadow="shadow-none"
             itemHoverText="focus:text-purpleOne"
             leftIcon={<FunnelIcon />}
+            width="w-full sm:w-[12rem] md:w-[16rem]"
           />
         )}
 
