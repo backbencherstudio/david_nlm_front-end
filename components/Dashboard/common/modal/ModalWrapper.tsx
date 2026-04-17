@@ -17,7 +17,7 @@ const sizeClasses = {
   md: "max-w-md",
   lg: "max-w-lg",
   xl: "max-w-[720px]", 
-  full: "max-w-5xl",
+  full: "max-w-7xl",
 };
 
 const ModalWrapper = ({

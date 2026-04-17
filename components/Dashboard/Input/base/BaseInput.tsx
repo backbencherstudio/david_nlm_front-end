@@ -92,7 +92,7 @@ export const BaseInput = forwardRef<HTMLInputElement, TextInputProps>(
         onClick={toggle}
         aria-label={visible ? "Hide password" : "Show password"}
         className={cn(
-          "flex items-center justify-center text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors",
+          "flex items-center justify-center text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors ",
           s.icon,
         )}
       >
@@ -105,7 +105,7 @@ export const BaseInput = forwardRef<HTMLInputElement, TextInputProps>(
         onClick={handleClear}
         aria-label="Clear input"
         className={cn(
-          "flex items-center justify-center text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors rounded-full",
+          "flex items-center justify-center text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors rounded-full cursor-pointer",
           s.icon,
         )}
       >
@@ -150,7 +150,7 @@ export const BaseInput = forwardRef<HTMLInputElement, TextInputProps>(
           {hasPrefix && (
             <span
               className={cn(
-                "absolute left-0 flex items-center justify-center text-slate-400 dark:text-slate-500 pointer-events-none",
+                "absolute left-0 flex items-center justify-center text-slate-400 dark:text-slate-500 pointer-events-none ",
                 s.icon,
                 "ml-3",
                 prefixClassName,

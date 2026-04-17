@@ -29,6 +29,7 @@ import {
   buildInputClass,
   buildLabelClass,
 } from "../utils/variants";
+import { UploadIcon } from "@/icons";
 
 // ══════════════════════════════════════════════════════════════════════════════
 // TextInput
@@ -579,19 +580,6 @@ export const RadioGroup = memo<RadioGroupProps>(function RadioGroup({
 // FileInput
 // ══════════════════════════════════════════════════════════════════════════════
 
-const UploadIcon = () => (
-  <svg
-    className="w-10 h-10"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={1.5}
-  >
-    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-    <polyline points="17 8 12 3 7 8" />
-    <line x1="12" y1="3" x2="12" y2="15" />
-  </svg>
-);
 
 export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
   function FileInput(
@@ -717,13 +705,14 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
           onDragLeave={onDragLeave}
           onDrop={onDrop}
           className={cn(
-            "relative flex flex-col items-center justify-center gap-2 p-8 rounded-lg border-2 border-dashed transition-all duration-200 cursor-pointer",
+            "relative flex flex-col items-center justify-center gap-2 px-8 py-10 rounded-xl border border-dashed transition-all duration-200 cursor-pointer",
             isDragging
-              ? "border-violet-500 bg-violet-50 dark:bg-violet-900/20"
+              ? "border-purpleOne bg-purpleOne/5 dark:bg-purpleOne/20"
               : hasError
                 ? "border-red-400 bg-red-50/50 dark:bg-red-900/10"
-                : "border-slate-300 dark:border-slate-600 hover:border-violet-400 hover:bg-slate-50 dark:hover:bg-slate-800/50",
+                : "border-slate-300 bg-slate-50 dark:border-slate-600 dark:bg-slate-800/50 hover:border-purpleOne/50",
             disabled && "opacity-50 cursor-not-allowed pointer-events-none",
+            inputClassName
           )}
         >
           <input
@@ -741,33 +730,32 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
           />
           <span
             className={cn(
-              "text-slate-400 dark:text-slate-500",
-              isDragging && "text-violet-500",
+              "text-slate-800 dark:text-slate-200",
+              isDragging && "text-purpleOne",
             )}
           >
             <UploadIcon />
           </span>
           <div className="text-center pointer-events-none">
             <p className="text-sm font-medium text-slate-700 dark:text-slate-300">
-              {isDragging ? "Drop files here" : "Drop files or click to upload"}
+              {isDragging ? (
+                "Drop files here"
+              ) : (
+                <p className="text-blackColor text-sm font-medium leading-[160%]">
+                  Drag & drop medias, or <span className="text-purpleOne text-sm font-medium leading-[160%]">Browse</span>
+                </p>
+              )}
             </p>
-            {(accept || maxSizeMB) && (
-              <p className="text-xs text-slate-400 dark:text-slate-500 mt-1">
-                {[
-                  accept && `Accepts: ${accept}`,
-                  maxSizeMB && `Max ${maxSizeMB}MB`,
-                ]
-                  .filter(Boolean)
-                  .join(" · ")}
-              </p>
-            )}
+            <p className="text-xs text-descriptionColor leading-[160%] mt-1">
+               Supported formats: PNG,JPEG, JPG. Maximum file size: 20 MB
+            </p>
           </div>
           {files.length > 0 && (
-            <ul className="flex flex-wrap gap-1.5 mt-1 pointer-events-none">
+            <ul className="flex flex-wrap gap-1.5 mt-2 pointer-events-none z-10 relative">
               {files.map((f) => (
                 <li
                   key={f.name}
-                  className="text-xs bg-violet-100 dark:bg-violet-900/40 text-violet-700 dark:text-violet-300 px-2 py-0.5 rounded-full"
+                  className="text-xs bg-purpleOne/10 dark:bg-purpleOne/20 text-purpleOne px-2 py-0.5 rounded-full"
                 >
                   {f.name}
                 </li>

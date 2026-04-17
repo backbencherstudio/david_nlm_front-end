@@ -22,6 +22,7 @@ import GenericButton from "../Dashboard/auth/GenericButton";
 import { useModal } from "@/hooks";
 import CreateServiceModal from "../Dashboard/services/CreateServiceModal";
 import { LogoutIcon } from "@/icons";
+import ProfileSettingModal from "../Dashboard/auth/profile/ProfileSettingModal";
 
 interface HeaderProps {
   onNotificationClick?: () => void;
@@ -49,13 +50,21 @@ const Header: React.FC<HeaderProps> = ({
   const { heading, description } = useHeaderHeading({ path });
   const isOverView = path === "/dashboard";
   const isServices = path === "/dashboard/services";
-  const { isOpen, openModal, closeModal, toggleModal } = useModal();
   const {
-    isOpen: isProfileOpen,
+    isOpen: isCreateServiceModalOpen,
+    openModal: openCreateServiceModal,
+    closeModal: closeCreateServiceModal,
+    toggleModal: toggleCreateServiceModal,
+    setIsOpen: setIsCreateServiceModalOpen,
+  } = useModal();
+  const {
+    isOpen: isProfileModalOpen,
     openModal: openProfileModal,
     closeModal: closeProfileModal,
     toggleModal: toggleProfileModal,
   } = useModal();
+
+  const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
 
   return (
     <nav className="  bg-grayBg p-5">
@@ -106,7 +115,7 @@ const Header: React.FC<HeaderProps> = ({
                   variant="primary"
                   size="xlg"
                   icon={<PlusIcon />}
-                  onClick={openModal}
+                  onClick={openCreateServiceModal}
                 >
                   Create new Service
                 </GenericButton>
@@ -148,13 +157,10 @@ const Header: React.FC<HeaderProps> = ({
                 </PopoverContent>
               </Popover>
 
-              <DropdownMenu>
+              <DropdownMenu open={isProfileDropdownOpen} onOpenChange={setIsProfileDropdownOpen}>
                 <DropdownMenuTrigger asChild>
                   <div className="flex gap-2 h-full items-center cursor-pointer bg-white rounded-lg px-3 py-2 border-[0.5px] border-borderColor">
-                    <div
-                      onClick={openProfileModal}
-                      className=" w-9 h-9  rounded-full overflow-hidden"
-                    >
+                    <div className=" w-9 h-9  rounded-full overflow-hidden">
                       <Image
                         src={"/vendly_profile.jpg"}
                         alt="Admin Avatar"
@@ -164,7 +170,7 @@ const Header: React.FC<HeaderProps> = ({
                       />
                     </div>
 
-                    <div>
+                    <div className="hidden md:block">
                       <h2 className="text-sm font-medium text-blackColor leading-[160%] ">
                         David Smith
                       </h2>
@@ -200,7 +206,15 @@ const Header: React.FC<HeaderProps> = ({
                         </p>
                       </div>
                     </div>
-                    <GenericButton variant="primary" size="md" fullWidth>
+                    <GenericButton
+                      variant="primary"
+                      size="md"
+                      fullWidth
+                      onClick={() => {
+                        setIsProfileDropdownOpen(false);
+                        openProfileModal();
+                      }}
+                    >
                       Edit Profile
                     </GenericButton>
                   </div>
@@ -232,7 +246,12 @@ const Header: React.FC<HeaderProps> = ({
         />
       </div> */}
 
-      {isOpen && <CreateServiceModal closeModal={closeModal} />}
+      {isCreateServiceModalOpen && (
+        <CreateServiceModal closeModal={closeCreateServiceModal} />
+      )}
+      {isProfileModalOpen && (
+        <ProfileSettingModal onClose={closeProfileModal} />
+      )}
     </nav>
   );
 };

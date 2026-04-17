@@ -15,4 +15,5 @@ export { default as EyeIcon } from "@/icons/EyeIcon";
 export {  EyeOffIcon } from "@/icons/EyeOffIcon";
 export {XIcon} from "@/icons/XIcon"
 export {ErrorIcon} from "@/icons/ErrorIcon"
-export {SuccessIcon} from "@/icons/SuccessIcon"
+export {SuccessIcon} from "@/icons/SuccessIcon";
+export {default as UploadIcon} from "@/icons/UploadIcon";
