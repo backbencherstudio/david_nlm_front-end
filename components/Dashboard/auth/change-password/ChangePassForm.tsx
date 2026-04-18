@@ -7,11 +7,12 @@ import LockIcon from "@/icons/LockIcon";
 import React from "react";
 import { GenericButton } from "../GenericButton";
 import CircleTickIcon from "@/icons/CircleTickIcon";
+import { useRouter } from "next/navigation";
 
 const ChangePassForm = () => {
   const [showPassword, setShowPassword] = React.useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = React.useState(false);
-
+const router = useRouter();
   const togglePasswordVisibility = () => {
     setShowPassword((prev) => !prev);
   };
@@ -71,7 +72,7 @@ const ChangePassForm = () => {
           variant="primary"
           size="md"
           rounded="2xl"
-          onClick={() => console.log("Saved")}
+          onClick={() => router.push("/dashboard")}
           fullWidth
           height="lg"
         >

@@ -131,7 +131,7 @@ const OtpForm = ({
         aria-disabled={!isComplete || status === "loading"}
       >
         {" "}
-        <StatusIcon status={status} />
+        {/* <StatusIcon status={status} /> */}
         {status === "loading"
           ? "Verifying…"
           : status === "success"

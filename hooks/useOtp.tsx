@@ -1,4 +1,5 @@
 import { useCallback, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 
 export type OtpStatus = "idle" | "loading" | "success" | "error";
 
@@ -29,7 +30,7 @@ export function useOtp({
   const [status, setStatus] = useState<OtpStatus>("idle");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const inputsRef = useRef<(HTMLInputElement | null)[]>([]);
-
+const router = useRouter();
   const isComplete = otp.every((d) => d !== "");
 
   const focusIndex = useCallback((index: number) => {
@@ -114,6 +115,7 @@ export function useOtp({
     try {
       await onComplete?.(otp.join(""));
       setStatus("success");
+      router.push("/dashboard");
     } catch (err) {
       const message =
         err instanceof Error ? err.message : "Verification failed. Try again.";

@@ -234,6 +234,11 @@ input:checked~.checkmark {
       linear-gradient(90deg, #795ff4 0%, #8f6cfd 50.3%, #8e5ef3 100%));
 }
 
+.gradient-bg-disabled {
+  background: var(--Purple-shade-disabled,
+      linear-gradient(90deg, #795ff4 0%, #8f6cfd 50.3%, #8e5ef3 100%));
+}
+
 .hero_bg_light {
   background:
     linear-gradient(0deg,

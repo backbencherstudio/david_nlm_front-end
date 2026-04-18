@@ -21,7 +21,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 
 const variantStyles: Record<Variant, string> = {
   primary: [
-    "gradient-bg text-white border border-transparent font-medium",
+    "gradient-bg text-white border border-transparent font-medium","disabled:cursor-not-allowed"
   ].join(" "),
 
   outline: [
